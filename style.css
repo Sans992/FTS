@@ -1,0 +1,108 @@
+body{
+	font-family: "Italiana", serif;
+	font-weight: 600;
+	font-style: normal;
+    color:rgb(65, 106, 33);
+}
+
+.head-text{
+    text-indent:50px;
+    margin-top:20px;
+    font-size:40px;
+    display:inline-block;
+}
+
+.head-text2{
+	text-indent:700px;
+	font-size:20px;
+	display:inline-block;
+}
+
+.head-text3{
+	margin-left:1100px;
+	font-size:20px;
+	display:block;
+	margin-top:-56px;
+}
+
+.head-button{
+	margin-left:1250px;
+	font-size:20px;
+	display:block;
+	margin-top:-40px;
+    padding: 5px 25px;
+    border: 2px solid rgb(60, 100, 30);
+    background: rgb(65, 106, 33);
+    color:rgb(255,255,255);
+    border-radius:7px ;
+}
+
+.head-button:hover{
+	box-shadow: 2px 2px 10px rgba(65, 106, 33, 0.8);
+}
+
+.card-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.flori-carte {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(65, 106, 33);
+    background: white;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 0 0 3px white,
+                0 0 0 6px rgb(65, 106, 33),
+                  3px 3px 3px 6px rgba(65, 106, 33, 0.7);
+    backface-visibility: hidden;
+    transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
+}
+
+.img-carte {
+    width: 250px;
+            border-radius: 10px;
+}
+
+.text-carte {
+    color: rgb(60, 100, 30);
+    font-size: 23px;
+    text-align: center;
+}
+
+.flori-carte.front {
+     z-index: 2;
+}
+
+.flori-carte.back {
+    background: rgb(65, 106, 33);
+    color: white;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.card-container:hover .front {
+    transform: rotate(-15deg) translate(-50px, -50px); /* Se înclină la 15 de grade spre stânga */
+}
+
+.card-container:hover .back {
+    transform: none; /* Cardul din spate rămâne fix */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+     font-size: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
