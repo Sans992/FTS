@@ -3,10 +3,15 @@ body{
 	font-weight: 600;
 	font-style: normal;
     color:rgb(65, 106, 33);
+    margin: 0; 
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează orizontal */
+    min-height: 100vh;
 }
 
 .head-text{
-    text-indent:50px;
     margin-top:20px;
     font-size:40px;
     display:inline-block;
@@ -19,9 +24,9 @@ body{
 }
 
 .head-text3{
-	margin-left:1100px;
+	margin-left:1070px;
 	font-size:20px;
-	display:block;
+	display:flex;
 	margin-top:-56px;
 }
 
@@ -38,13 +43,18 @@ body{
 }
 
 .head-button:hover{
+    transition: transform 0.5s; 
 	box-shadow: 2px 2px 10px rgba(65, 106, 33, 0.8);
+
+
 }
 
 .card-container {
     position: relative;
     width: 300px;
     height: 400px;
+    flex-wrap: wrap; /* Permite ca elementele să se așeze pe mai multe rânduri */
+
 }
 
 .flori-carte {
@@ -60,15 +70,15 @@ body{
     justify-content: center;
     border-radius: 20px;
     box-shadow: 0 0 0 3px white,
-                0 0 0 6px rgb(65, 106, 33),
-                  3px 3px 3px 6px rgba(65, 106, 33, 0.7);
+        0 0 0 6px rgb(65, 106, 33),
+        3px 3px 3px 6px rgba(65, 106, 33, 0.7);
     backface-visibility: hidden;
     transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
 }
 
 .img-carte {
     width: 250px;
-            border-radius: 10px;
+    border-radius: 10px;
 }
 
 .text-carte {
@@ -94,7 +104,7 @@ body{
 }
 
 .card-container:hover .back {
-    transform: none; /* Cardul din spate rămâne fix */
+    transform: none;
 }
 
 a {
@@ -105,4 +115,142 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+h1#logo {
+    color: green;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    font-size: 3rem;
+    opacity: 0; 
+    transform: translateY(50px); 
+    animation: logo-animation 2.5s ease-out forwards; 
+}
+
+
+#loading-line {
+    position:absolute;
+    margin-left: 45%;
+    margin-top: 120px;
+    width: 0; 
+    left: 0; 
+    height: 7px;
+    background: green;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    animation: line-animation 3s forwards; 
+}
+
+@keyframes line-animation {
+    0% {
+        width: 0; 
+    }
+
+    100% {
+        width: 200px; 
+    }
+}
+
+#main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+#logo-splash{
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    background-color: #f6f6f6;
+    padding: 25px 20px;
+    border-radius:0px 0px 5px 5px;
+    box-shadow: 0px 5px 40px rgba(0,0,0,0.1);
+    margin-left: 105%;
+    position: sticky;
+}
+
+.nav-item {
+    width:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.nav-text {
+    font-size: 25px;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.material-icons {
+    display: inline;
+    font-size: 32px;
+    transition: color .3s;
+}
+
+.nav-item.active {
+    flex-grow: 3;
+    border-radius: 30px;
+    background: #ffffff;
+    justify-content: flex-start;
+}
+
+.nav-item.active > .nav-text {
+    display: inline-block;
+}
+
+.nav-item.active > .material-icons.maps-icon {
+    color:#ffffff;
+}
+
+.nav-item.active > .material-icons.facebook-icon {
+    color: #ffffff;
+}
+
+.nav-item.active > .material-icons.contacte-icon {
+    color: #ffffff;
+}
+
+.material-icons.maps-icon ~ .nav-text {
+    color: #58902c;
+}
+.material-icons.facebook-icon ~ .nav-text {
+    color: #1877f2;
+}
+.material-icons.contacte-icon ~ .nav-text {
+    color: #53aaff;
 }

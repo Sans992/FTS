@@ -11,6 +11,33 @@
 </head>
 <body >
 
+    <!-- Ecranul de încărcare -->
+<div id="loading-screen">
+    <h1 id="logo-splash">LOGO</h1>
+    <div id="loading-line"></div>
+    </div>
+</div>
+
+<script>
+    // După 4 secunde, ascundem ecranul de încărcare și animăm pagina principală
+    setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.transition = 'transform 1s ease-in-out';
+        loadingScreen.style.transform = 'translateY(-70%)'; // Ridicăm ecranul
+
+        setTimeout(() => {
+            loadingScreen.style.display = 'none'; // Ascundem complet după animație
+            const mainContent = document.getElementById('main-content');
+            mainContent.style.display = 'block'; // Afișăm conținutul
+            setTimeout(() => {
+                mainContent.style.opacity = 1; // Aplicăm efectul de fade-in
+            }, 50); // Mică întârziere pentru tranziție
+        }, 1000); // Așteptăm ca animația să se termine
+    }, 3000); // Setăm durata totală la 3 secunde
+</script>
+
+<div id="main-content">
+<!--head-->
 <div>
 	<h1 class="head-text">Logo</h1>
 	<h1 class="head-text2">Oferte Speciale</h1>
@@ -18,19 +45,55 @@
 	<button class="head-button">Cos</button>
 </div>
 
+<!--contacte-->
+<div class="nav">
+  <div class="nav-item active">
+      <img src="poze/maps.png" width="30px" class="material-icons maps-icon">
+      <span class="nav-text">Maps</span>
+  </div>
+  <div class="nav-item">
+      <img  src="poze/facebook.png" width="30px" class="material-icons facebook-icon">
+      <span class="nav-text">Facebook</span>
+  </div>
+  <div class="nav-item">
+      <img src="poze/phone.png"  width="28px" class="material-icons contacte-icon">
+      <span class="nav-text">06000000</span>
+  </div>
+</div>
+
+<script>
+const navItems = document.getElementsByClassName('nav-item');
+for (let i = 0; i < navItems.length; i++) {
+    navItems[i].addEventListener('click', () => {
+        for(let j = 0; j < navItems.length; j++) 
+            navItems[j].classList.remove('active');
+        
+        navItems[i].classList.add('active');
+    });
+}
+</script>
+
+
+<!--introducere cu poze-->
+<div>
+    <h1>*************************</h1>
+
+</div>
+
+<!--carti-->
 <div style="margin-top:100px;margin-left:120px">
     <div class="card-container">
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Trandafirul Rozov</p>
-            <p class="text-carte">*******************<br>*******************<br>*******************<br></p>
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
-            <a href="pagini/trandafir-rozov.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
-            <a href="pagini/trandafir-rozov.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
         </div>
 </div>
 
@@ -39,15 +102,17 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Trandafirul Rozov</p>
-            <p class="text-carte">*******************<br>*******************<br>*******************<br></p>
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
-            <a href="pagini/trandafir-rozov.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
-            <a href="pagini/trandafir-rozov.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
         </div>
+</div>
+
 </div>
 
 <script href="script.js"></script>
