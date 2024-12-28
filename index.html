@@ -10,7 +10,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Carattere&family=Charm:wght@400;700&family=Italiana&display=swap" rel="stylesheet">
 </head>
 <body >
-
     <!-- Ecranul de încărcare -->
 <div id="loading-screen">
     <h1 id="logo-splash">LOGO</h1>
@@ -23,7 +22,7 @@
     setTimeout(() => {
         const loadingScreen = document.getElementById('loading-screen');
         loadingScreen.style.transition = 'transform 1s ease-in-out';
-        loadingScreen.style.transform = 'translateY(-70%)'; // Ridicăm ecranul
+        loadingScreen.style.transform = 'translateY(-60%)'; // Ridicăm ecranul
 
         setTimeout(() => {
             loadingScreen.style.display = 'none'; // Ascundem complet după animație
@@ -32,8 +31,8 @@
             setTimeout(() => {
                 mainContent.style.opacity = 1; // Aplicăm efectul de fade-in
             }, 50); // Mică întârziere pentru tranziție
-        }, 1000); // Așteptăm ca animația să se termine
-    }, 3000); // Setăm durata totală la 3 secunde
+        }, 800); // Așteptăm ca animația să se termine
+    }, 2300); // Setăm durata totală la 3 secunde
 </script>
 
 <div id="main-content">
@@ -73,15 +72,18 @@ for (let i = 0; i < navItems.length; i++) {
 }
 </script>
 
-
 <!--introducere cu poze-->
 <div>
-    <h1>*************************</h1>
+    <img src="poze/magazin.jpg" width="600px" class="introducere-poza">
+    <p class="introducere-text">*************************<br>*******************</p>
+    <img src="poze/magazin2.jpg" width="800px" class="introducere-poza2">
 
 </div>
 
+<!---->
+
 <!--carti-->
-<div style="margin-top:100px;margin-left:120px">
+<div style="margin-top:200px;margin-left:120px">
     <div class="card-container">
         <!-- Front Card -->
         <div class="flori-carte front">
@@ -111,7 +113,6 @@ for (let i = 0; i < navItems.length; i++) {
             <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
             <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
         </div>
-</div>
 
 </div>
 

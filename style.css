@@ -193,8 +193,9 @@ h1#logo {
     padding: 25px 20px;
     border-radius:0px 0px 5px 5px;
     box-shadow: 0px 5px 40px rgba(0,0,0,0.1);
-    margin-left: 105%;
+    margin-left: 100%;
     position: sticky;
+    top: 75px;
 }
 
 .nav-item {
@@ -259,4 +260,21 @@ h1#logo {
 }
 .material-icons.contacte-icon ~ .nav-text {
     color: #53aaff;
+}
+
+.introducere-text{
+    margin-left:800px;
+    font-size: 40px;
+    margin-top:-770px;
+}
+
+.introducere-poza{
+    border-radius:30px;
+}
+
+.introducere-poza2{
+    border-radius:30px;
+    margin-top:100px;
+    margin-left:700px;
+
 }
