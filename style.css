@@ -110,11 +110,13 @@ body{
 a {
     color: white;
     text-decoration: none;
-     font-size: 20px;
+    font-size: 20px;
 }
 
 a:hover {
     text-decoration: underline;
+    transition: transform 0.5s;
+
 }
 
 #loading-screen {
@@ -144,7 +146,7 @@ h1#logo {
 
 #loading-line {
     position:absolute;
-    margin-left: 45%;
+    margin-left: 44.8%;
     margin-top: 120px;
     width: 0; 
     left: 0; 
@@ -214,6 +216,10 @@ h1#logo {
     display: none;
     transition: all 0.3s ease;
     font-family: 'Poppins', sans-serif;
+}
+
+.nav-text:hover{
+    text-decoration: none;
 }
 
 .material-icons {
