@@ -1,3 +1,4 @@
+<!--WJT incercarea nr.2-->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -17,73 +18,41 @@
     </div>
 </div>
 
-<script>
-    // După 4 secunde, ascundem ecranul de încărcare și animăm pagina principală
-    setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.style.transition = 'transform 1s ease-in-out';
-        loadingScreen.style.transform = 'translateY(-60%)'; // Ridicăm ecranul
-
-        setTimeout(() => {
-            loadingScreen.style.display = 'none'; // Ascundem complet după animație
-            const mainContent = document.getElementById('main-content');
-            mainContent.style.display = 'block'; // Afișăm conținutul
-            setTimeout(() => {
-                mainContent.style.opacity = 1; // Aplicăm efectul de fade-in
-            }, 50); // Mică întârziere pentru tranziție
-        }, 800); // Așteptăm ca animația să se termine
-    }, 2300); // Setăm durata totală la 3 secunde
-</script>
-
 <div id="main-content">
 <!--head-->
-<div>
+<div style="margin-top:40px;">
 	<h1 class="head-text">Logo</h1>
 	<h1 class="head-text2">Oferte Speciale</h1>
 	<h1 class="head-text3">Flori</h1>
-	<button class="head-button">Cos</button>
+	<button class="head-button">Cos</button><br>
 </div>
 
 <!--contacte-->
-<div class="nav">
-  <div class="nav-item active">
-      <img src="poze/maps.png" width="30px" class="material-icons maps-icon">
-      <a href="https://maps.app.goo.gl/jJjK4FHEvKpvzuME7" class="nav-text" target="_blank">Maps</a>
-  </div>
-  <div class="nav-item">
-      <img  src="poze/facebook.png" width="30px" class="material-icons facebook-icon">
-      <span class="nav-text">Facebook</span>
-  </div>
-  <div class="nav-item">
-      <img src="poze/phone.png"  width="28px" class="material-icons contacte-icon">
-      <span class="nav-text">06000000</span>
-  </div>
+<div>
+    <hr class="linie">
+    <div class="contacte">
+        <p class="contacte-name">Contacte</p>
+           <a src="poze/maps.png" class="contacte1">Maps</a>
+           <a src="poze/facebook.png" class="contacte2">Facebook</a>
+           <a src="poze/phone.png" class="contacte2">Telefon</a>
+    </div>
 </div>
-
-<script>
-const navItems = document.getElementsByClassName('nav-item');
-for (let i = 0; i < navItems.length; i++) {
-    navItems[i].addEventListener('click', () => {
-        for(let j = 0; j < navItems.length; j++) 
-            navItems[j].classList.remove('active');
-        
-        navItems[i].classList.add('active');
-    });
-}
-</script>
 
 <!--introducere cu poze-->
 <div>
+    <p class="introducere-text">***<br>*************************<br>*************************</p>
     <img src="poze/magazin.jpg" width="600px" class="introducere-poza">
-    <p class="introducere-text">*************************<br>*******************</p>
-    <img src="poze/magazin2.jpg" width="800px" class="introducere-poza2">
-
+    <img src="poze/magazin2.jpg" width="700px" class="introducere-poza2">
 </div>
 
-<!---->
+<!--linie de delimitare-->
+<div>
+    <h1 class="flori-name">Flori</h1>
+    <hr class="linie2">
+</div>
 
 <!--carti-->
-<div style="margin-top:200px;margin-left:120px">
+<div style="margin-top:100px;">
     <div class="card-container">
         <!-- Front Card -->
         <div class="flori-carte front">
@@ -95,7 +64,7 @@ for (let i = 0; i < navItems.length; i++) {
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
-            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
         </div>
 </div>
 
@@ -111,11 +80,256 @@ for (let i = 0; i < navItems.length; i++) {
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
-            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adaugatoare</a>
-        </div>
-
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+         </div>
 </div>
 
-<script href="script.js"></script>
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<!--2 linie-->
+
+<div style="margin-top:100px;margin-left:-1290px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+         </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<!--3 linie-->
+
+<div style="margin-top:100px;margin-left:-1290px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+         </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<!--4 linie-->
+
+<div style="margin-top:100px;margin-left:-1290px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+         </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte front">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Trandafir" class="img-carte">
+            <p class="text-carte">Trandafirul Roz</p>
+            <p class="text-carte">Detalii produs...<br>*******************<br>*******************<br></p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" style="margin-left:210px;margin-top:50px;transform: rotate(76deg);">Informatie</a>
+            <a href="pagini/trandafir-roz.html" style="margin-left:160px;margin-top:280px">Adauga In Cos</a>
+        </div>
+</div>
+
+<!--Oferte trecere-->
+<div class="container-scroll">
+<div class="container-animatie" id="containerAnimatie">
+<div class="sectiune" id="sectiune1">
+    <img src="poze/alb.png" alt="Echipa" class="imagine-fundal">
+</div>
+
+<div class="sectiune" id="sectiune2">
+    <img src="poze/magazin2.jpg" alt="Background" class="imagine-fundal">
+    <div>
+        <p class="sectiunea2-1head">OFERTE</p>
+        <p class="sectiunea2-2head">SPECIALE</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>

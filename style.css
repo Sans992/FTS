@@ -8,7 +8,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center; /* Centrează orizontal */
-    min-height: 100vh;
 }
 
 .head-text{
@@ -185,96 +184,192 @@ h1#logo {
   }
 }
 
-.nav {
-    display: flex;
-    flex-direction: column;
-    width: 180px;
-    background-color: #f6f6f6;
-    padding: 25px 20px;
-    border-radius:0px 0px 5px 5px;
-    box-shadow: 0px 5px 40px rgba(0,0,0,0.1);
-    margin-left: 100%;
-    position: sticky;
-    top: 75px;
-}
-
-.nav-item {
-    width:150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-}
-
-.nav-text {
-    font-size: 25px;
-    margin: auto;
-    text-align: center;
-    font-weight: 500;
-    display: none;
-    transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-}
-
-.nav-text:hover{
-    text-decoration: none;
-}
-
-.material-icons {
-    display: inline;
-    font-size: 32px;
-    transition: color .3s;
-}
-
-.nav-item.active {
-    flex-grow: 3;
-    border-radius: 30px;
-    background: #ffffff;
-    justify-content: flex-start;
-}
-
-.nav-item.active > .nav-text {
-    display: inline-block;
-}
-
-.nav-item.active > .material-icons.maps-icon {
-    color:#ffffff;
-}
-
-.nav-item.active > .material-icons.facebook-icon {
-    color: #ffffff;
-}
-
-.nav-item.active > .material-icons.contacte-icon {
-    color: #ffffff;
-}
-
-.material-icons.maps-icon ~ .nav-text {
-    color: #58902c;
-}
-.material-icons.facebook-icon ~ .nav-text {
-    color: #1877f2;
-}
-.material-icons.contacte-icon ~ .nav-text {
-    color: #53aaff;
-}
-
 .introducere-text{
-    margin-left:800px;
-    font-size: 40px;
-    margin-top:-770px;
+    margin-left:100px;
+    margin-top:250px;
+    font-size: 50px;
+    text-align:center;
+    display: flex;
+
 }
 
 .introducere-poza{
     border-radius:30px;
+    margin-top:-300px;
+    margin-left:900px;
+    display: flex;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .introducere-poza2{
     border-radius:30px;
-    margin-top:100px;
-    margin-left:700px;
+    display: flex;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.3);
+    margin-top:-400px;
+    margin-left:100px;
+}
 
+.linie{
+    width:100%;
+    height:2px;
+    background-color:rgb(65, 106, 33);
+    border: none;
+    border-radius:3px;
+    display:flex;
+}
+
+.contacte{
+    background-color:rgba(65, 106, 33, 0.7);
+    width:100%;
+    height:50px;
+    border-radius: 0px 0px 5px 5px;
+    margin-top:-150px;
+    display:flex;
+}
+
+.linie2{
+    width:100%;
+    height:3px;
+    background-color:rgb(65, 106, 33);
+    border: none;
+    border-radius:3px;
+    display:flex;
+
+}
+
+.flori-name{
+    color:rgb(65, 106, 33);
+    font-size:50px;
+    margin-top:150px;
+    display:flex;
+}
+
+.contacte1{
+    margin-left:1100px;
+    margin-top:10px;
+    font-size:22px;
+    cursor:pointer;
+    color:rgb(65, 106, 33);
+}
+
+.contacte2{
+    margin-left:30px;
+    margin-top:10px;
+    font-size:22px;
+    cursor:pointer;
+    color:rgb(65, 106, 33);
+}
+
+.contacte-name{
+    margin-left:20px;
+    font-size:23px;
+    margin-top:10px;
+}
+
+.container-scroll {
+    height: 700vh; 
+    width: 100%;
+    position: relative;
+}
+
+
+.container-animatie {
+    width: 100%;
+    height: 100vh;
+    perspective: 1000px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    z-index: 100;
+}
+
+.container-animatie.vizibil {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-out;
+}
+
+.sectiune {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+#sectiune1{
+    display:none;
+}
+
+#sectiune2 {
+    background-color: black;
+    opacity:0.9;
+    transform: rotateX(180deg);
+    position: relative;
+    overflow: hidden;
+}
+
+#sectiune2 .imagine-fundal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.imagine-fundal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity:0.4;
+
+}
+
+.continut-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    margin: 0;
+    color:white;
+}
+
+.continut-text p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .continut-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .continut-text p {
+        font-size: 1.2rem;
+    }
+}
+
+.sectiunea2-1head{
+    font-size: 200px;
+    margin-top: 200px;
+    margin-left:200px;
+    color:white;
+    display:flex;
+}
+
+.sectiunea2-2head{
+    font-size: 200px;
+    margin-top:-100px;
+    margin-left:900px;
+    color:white;
+    display:flex;
 }
