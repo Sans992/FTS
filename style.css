@@ -185,9 +185,9 @@ h1#logo {
 }
 
 .introducere-text{
-    margin-left:100px;
-    margin-top:250px;
-    font-size: 50px;
+    margin-left:120px;
+    margin-top:300px;
+    font-size: 70px;
     text-align:center;
     display: flex;
 
@@ -195,7 +195,7 @@ h1#logo {
 
 .introducere-poza{
     border-radius:30px;
-    margin-top:-300px;
+    margin-top:-400px;
     margin-left:900px;
     display: flex;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
@@ -205,7 +205,7 @@ h1#logo {
     border-radius:30px;
     display: flex;
     box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.3);
-    margin-top:-400px;
+    margin-top:-500px;
     margin-left:100px;
 }
 
@@ -346,16 +346,6 @@ h1#logo {
     font-size: 1.5rem;
     margin-top: 1rem;
     letter-spacing: 0.1em;
-}
-
-@media (max-width: 768px) {
-    .continut-text h1 {
-        font-size: 2.5rem;
-    }
-    
-    .continut-text p {
-        font-size: 1.2rem;
-    }
 }
 
 .sectiunea2-1head{
