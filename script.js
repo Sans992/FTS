@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateRotation() {
     const scrollPosition = window.pageYOffset;
     const windowHeight = window.innerHeight;
-    const startPosition = windowHeight * 3.5; //viewport
+    const startPosition = windowHeight * 5; //viewport
     const endPosition = startPosition + windowHeight; 
     
     let progress = (scrollPosition - startPosition) / (endPosition - startPosition);
