@@ -19,6 +19,33 @@
 </div>
 
 <div id="main-content">
+
+
+    <div class="cart-button" id="cartButton">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Coșul meu</h2>
+                <button class="close-button" id="closeCart">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be added here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    Total: <span id="cartTotal">0.00</span> RON
+                </div>
+                <button class="checkout-button" id="checkoutButton">
+                    Finalizează comanda
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 <!--head-->
 <div style="margin-top:40px;">
 	<h1 class="head-text">Logo</h1>
@@ -63,7 +90,7 @@
         <!-- Back Card -->
         <div class="flori-carte-reducere back">
             <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-            <a href="pagini/trandafir-roz.html" class="text-add">Adauga In Cos</a>
+            <button class=" text-add" onclick="addToCart(1)" onclick="selectColor(this, 1)">Adaugă în coș</button>
         </div>
 </div>
 
@@ -78,8 +105,8 @@
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-            <a href="pagini/trandafir-roz.html" class="text-add">Adauga In Cos</a>
-         </div>
+            <button class=" text-add" onclick="addToCart(2)" onclick="selectColor(this, 2)">Adaugă în coș</button>
+    </div>
 </div>
 
 <div style="margin-top:-400px;margin-left:430px">
@@ -258,37 +285,6 @@
     <hr class="linie3">
 </div>
 
-<!--
-    <main class="container">
-        <div class="products" id="products"></div>
-    </main>
-
-    <div class="cart-button" id="cartButton">
-        🛒 <span class="cart-count" id="cartCount">0</span>
-    </div>
-
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>Coșul meu</h2>
-                <button class="close-button" id="closeCart">✕</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    Total: <span id="cartTotal">0.00</span> RON
-                </div>
-                <button class="checkout-button" id="checkoutButton">
-                    Finalizează comanda
-                </button>
-            </div>
-        </div>
-    </div>
-
--->
-
 <!--4 linie-->
 
 <div style="margin-top:100px;margin-left:-1290px">
@@ -370,7 +366,6 @@
         <p class="sectiunea2-2head">CADOU</p>
     </div>
 </div>
-
 
 <script src="script.js"></script>
 

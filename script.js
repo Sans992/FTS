@@ -50,56 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRotation();
 });
 
-/*
-
-// Products data
-const products = [
-    {
-        id: 1,
-        name: 'Trandafiri Premium',
-        price: 129.99,
-        image: 'https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800',
-        colors: [
-            { name: 'Roșu', value: '#dc2626' },
-            { name: 'Roz', value: '#ec4899' },
-            { name: 'Alb', value: '#f3f4f6' }
-        ]
-    },
-    {
-        id: 2,
-        name: 'Buchet Lalele',
-        price: 89.99,
-        image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=800',
-        colors: [
-            { name: 'Roșu', value: '#dc2626' },
-            { name: 'Galben', value: '#fbbf24' },
-            { name: 'Roz', value: '#ec4899' },
-            { name: 'Violet', value: '#7c3aed' }
-        ]
-    },
-    {
-        id: 3,
-        name: 'Crin Imperial',
-        price: 149.99,
-        image: 'https://images.unsplash.com/photo-1509784073363-4b6a394b4ab3?auto=format&fit=crop&w=800',
-        colors: [
-            { name: 'Alb', value: '#f3f4f6' },
-            { name: 'Roz', value: '#ec4899' }
-        ]
-    },
-    {
-        id: 4,
-        name: 'Orhidee Elegantă',
-        price: 199.99,
-        image: 'https://images.unsplash.com/photo-1566896546083-321519a7e849?auto=format&fit=crop&w=800',
-        colors: [
-            { name: 'Violet', value: '#7c3aed' },
-            { name: 'Alb', value: '#f3f4f6' },
-            { name: 'Roz', value: '#ec4899' }
-        ]
-    }
-];
-
 // Cart class
 class Cart {
     constructor() {
@@ -107,7 +57,14 @@ class Cart {
         this.updateUI();
     }
 
-    addItem(product, color) {
+    addItem(productId, color) {
+        const product = {
+            id: productId,
+            name: document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-name').textContent,
+            price: parseFloat(document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-price').textContent),
+            image: document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-image').src
+        };
+
         const existingItem = this.items.find(item => 
             item.id === product.id && item.color.name === color.name
         );
@@ -207,49 +164,6 @@ class Cart {
 // Initialize cart
 const cart = new Cart();
 
-// Render products
-function renderProducts() {
-    const productsContainer = document.getElementById('products');
-    
-    products.forEach(product => {
-        const productElement = document.createElement('div');
-        productElement.className = 'product-card';
-        
-        const colorOptions = product.colors.map(color => `
-            <button
-                class="color-option"
-                style="background-color: ${color.value}"
-                data-color='${JSON.stringify(color)}'
-                onclick="selectColor(this, ${product.id})"
-            ></button>
-        `).join('');
-
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" class="product-image">
-            <div class="product-info">
-                <h3 class="product-name">${product.name}</h3>
-                <p class="product-price">${product.price} RON</p>
-                <div class="color-options" id="colors-${product.id}">
-                    ${colorOptions}
-                </div>
-                <button class="add-to-cart" onclick="addToCart(${product.id})">
-                    Adaugă în coș
-                </button>
-            </div>
-        `;
-        
-        productsContainer.appendChild(productElement);
-    });
-
-    // Select first color for each product
-    products.forEach(product => {
-        const firstColorButton = document.querySelector(`#colors-${product.id} .color-option`);
-        if (firstColorButton) {
-            selectColor(firstColorButton, product.id);
-        }
-    });
-}
-
 // Handle color selection
 function selectColor(button, productId) {
     const colorButtons = document.querySelectorAll(`#colors-${productId} .color-option`);
@@ -259,11 +173,13 @@ function selectColor(button, productId) {
 
 // Handle add to cart
 function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
     const selectedColorButton = document.querySelector(`#colors-${productId} .color-option.selected`);
+    if (!selectedColorButton) {
+        const firstColorButton = document.querySelector(`#colors-${productId} .color-option`);
+        selectColor(firstColorButton, productId);
+    }
     const color = JSON.parse(selectedColorButton.dataset.color);
-    
-    cart.addItem(product, color);
+    cart.addItem(productId, color);
 }
 
 // Cart modal controls
@@ -288,7 +204,13 @@ checkoutButton.addEventListener('click', () => {
     alert('Procesul de checkout va fi implementat aici');
 });
 
-// Initialize the app
-renderProducts();
-
-*/
+// Select first color for each product on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const productIds = [1, 2, 3, 4];
+    productIds.forEach(id => {
+        const firstColorButton = document.querySelector(`#colors-${id} .color-option`);
+        if (firstColorButton) {
+            selectColor(firstColorButton, id);
+        }
+    });
+});
