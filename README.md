@@ -1,4 +1,5 @@
 Website Florărie 🌸
+
 Bun venit în repository-ul Website Florărie! Acest proiect a fost creat de sans992 și Dany0443 ca parte a unui concurs. Website-ul nostru demonstrează abilitățile noastre în dezvoltarea web printr-un site complet funcțional pentru o florărie.
 
 🌟 Prezentare Generală
