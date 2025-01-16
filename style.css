@@ -382,37 +382,6 @@ h1#logo {
     display:flex;
 }
 
-.flori-carte-nostock {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 3px solid rgb(160, 160, 160);
-    background: white;
-    color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    box-shadow: 0 0 0 3px white,
-        0 0 0 6px rgb(160, 160, 160),
-        3px 3px 3px 6px rgba(160, 160, 160, 0.7);
-    backface-visibility: hidden;
-    transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
-}
-
-.flori-carte-nostock.front {
-     z-index: 2;
-}
-
-.flori-carte-nostock.back {
-    background: rgb(160, 160, 160);
-    color: white;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-}
-
 .text-informatie{
     margin-left:210px;
     margin-top:50px;
@@ -422,46 +391,6 @@ h1#logo {
 .text-add{
     margin-left:160px;
     margin-top:280px;
-}
-
-.text-add-nostock{
-    margin-left:160px;
-    margin-top:280px;
-}
-
-.text-add-nostock:hover{
-    text-decoration: line-through;
-}
-
-.flori-carte-reducere {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 3px solid rgb(255,0,0);
-    background: white;
-    color: rgb(255,0,0);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    box-shadow: 0 0 0 3px white,
-        0 0 0 6px rgb(255,0,0),
-        3px 3px 3px 6px rgba(255,0,0, 0.7);
-    backface-visibility: hidden;
-    transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
-}
-
-.flori-carte-reducere.front {
-     z-index: 2;
-}
-
-.flori-carte-reducere.back {
-    background: rgb(255,0,0);
-    color: white;
-    display: flex;
-    align-items: start;
-    justify-content: center;
 }
 
 

@@ -50,87 +50,50 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRotation();
 });
 
-// Cart class
 class Cart {
     constructor() {
-        this.items = JSON.parse(localStorage.getItem('cart')) || [];
-        this.updateUI();
+        this.items = [];
     }
 
     addItem(productId, color) {
-        const product = {
-            id: productId,
-            name: document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-name').textContent,
-            price: parseFloat(document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-price').textContent),
-            image: document.querySelector(`#colors-${productId}`).closest('.product-card').querySelector('.product-image').src
-        };
-
-        const existingItem = this.items.find(item => 
-            item.id === product.id && item.color.name === color.name
-        );
-
+        const existingItem = this.items.find(item => item.id === productId && item.color.name === color);
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
-            this.items.push({
-                ...product,
-                color,
-                quantity: 1
-            });
+            const newItem = {
+                id: productId,
+                name: `Product ${productId}`,
+                color: { name: color },
+                quantity: 1,
+                price: 100 // Example price, replace with actual price
+            };
+            this.items.push(newItem);
         }
-
-        this.save();
-        this.updateUI();
-        this.showNotification(`${product.name} adăugat în coș`);
-    }
-
-    removeItem(productId, colorName) {
-        this.items = this.items.filter(item => 
-            !(item.id === productId && item.color.name === colorName)
-        );
-        this.save();
         this.updateUI();
     }
 
-    updateQuantity(productId, colorName, newQuantity) {
-        const item = this.items.find(item => 
-            item.id === productId && item.color.name === colorName
-        );
-
+    updateQuantity(productId, color, quantity) {
+        const item = this.items.find(item => item.id === productId && item.color.name === color);
         if (item) {
-            if (newQuantity <= 0) {
-                this.removeItem(productId, colorName);
+            item.quantity = quantity;
+            if (item.quantity <= 0) {
+                this.removeItem(productId, color);
             } else {
-                item.quantity = newQuantity;
-                this.save();
                 this.updateUI();
             }
         }
     }
 
-    save() {
-        localStorage.setItem('cart', JSON.stringify(this.items));
+    removeItem(productId, color) {
+        this.items = this.items.filter(item => !(item.id === productId && item.color.name === color));
+        this.updateUI();
     }
 
     getTotal() {
-        return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    }
-
-    showNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
+        return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
     }
 
     updateUI() {
-        const cartCount = document.getElementById('cartCount');
-        cartCount.textContent = this.items.reduce((sum, item) => sum + item.quantity, 0);
-
         const cartItems = document.getElementById('cartItems');
         cartItems.innerHTML = '';
 
@@ -141,17 +104,14 @@ class Cart {
                 <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                 <div class="cart-item-details">
                     <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-color">Culoare: ${item.color.name}</div>
+                    <div class="cart-item-price">Price: ${item.price} MDL</div>
                     <div class="quantity-controls">
-                        <button class="quantity-button" onclick="cart.updateQuantity(${item.id}, '${item.color.name}', ${item.quantity - 1})">-</button>
+                        <button class="quantity-button" onclick="cart.updateQuantity('${item.id}', '${item.color.name}', ${item.quantity - 1})">-</button>
                         <span>${item.quantity}</span>
-                        <button class="quantity-button" onclick="cart.updateQuantity(${item.id}, '${item.color.name}', ${item.quantity + 1})">+</button>
+                        <button class="quantity-button" onclick="cart.updateQuantity('${item.id}', '${item.color.name}', ${item.quantity + 1})">+</button>
                     </div>
                 </div>
-                <div class="cart-item-price">
-                    <div>${(item.price * item.quantity).toFixed(2)} RON</div>
-                    <button class="remove-item" onclick="cart.removeItem(${item.id}, '${item.color.name}')">Elimină</button>
-                </div>
+                <button class="remove-item" onclick="cart.removeItem('${item.id}', '${item.color.name}')">Elimină</button>
             `;
             cartItems.appendChild(itemElement);
         });
@@ -164,23 +124,20 @@ class Cart {
 // Initialize cart
 const cart = new Cart();
 
-// Handle color selection
-function selectColor(button, productId) {
-    const colorButtons = document.querySelectorAll(`#colors-${productId} .color-option`);
-    colorButtons.forEach(btn => btn.classList.remove('selected'));
-    button.classList.add('selected');
-}
 
-// Handle add to cart
-function addToCart(productId) {
-    const selectedColorButton = document.querySelector(`#colors-${productId} .color-option.selected`);
-    if (!selectedColorButton) {
-        const firstColorButton = document.querySelector(`#colors-${productId} .color-option`);
-        selectColor(firstColorButton, productId);
-    }
-    const color = JSON.parse(selectedColorButton.dataset.color);
-    cart.addItem(productId, color);
-}
+// Attach event listeners to "Adaugă în coș" buttons
+document.querySelectorAll('.text-add').forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        const productId = parseInt(button.getAttribute('data-id'));
+        const selectedColorButton = document.querySelector(`#colors-${productId} .color-option.selected`);
+        if (selectedColorButton) {
+            const color = selectedColorButton.textContent;
+            cart.addItem(productId, color);
+
+        }
+    });
+});
 
 // Cart modal controls
 const cartButton = document.getElementById('cartButton');
