@@ -7,7 +7,13 @@ body{
     padding: 0; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrează orizontal */
+    align-items: center; 
+}
+
+.carattere-regular {
+    font-family: "Carattere", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .head-text{
@@ -29,30 +35,17 @@ body{
 	margin-top:-56px;
 }
 
-.head-button{
+.head-text4{
 	margin-left:1250px;
 	font-size:20px;
-	display:block;
 	margin-top:-40px;
-    padding: 5px 25px;
-    border: 2px solid rgb(60, 100, 30);
-    background: rgb(65, 106, 33);
-    color:rgb(255,255,255);
-    border-radius:7px ;
-}
-
-.head-button:hover{
-    transition: transform 0.5s; 
-	box-shadow: 2px 2px 10px rgba(65, 106, 33, 0.8);
-
-
 }
 
 .card-container {
     position: relative;
     width: 300px;
     height: 400px;
-    flex-wrap: wrap; /* Permite ca elementele să se așeze pe mai multe rânduri */
+    flex-wrap: wrap; 
 
 }
 
@@ -99,7 +92,7 @@ body{
 }
 
 .card-container:hover .front {
-    transform: rotate(-15deg) translate(-50px, -50px); /* Se înclină la 15 de grade spre stânga */
+    transform: rotate(-15deg) translate(-50px, -50px);
 }
 
 .card-container:hover .back {
@@ -262,28 +255,6 @@ h1#logo {
     display:flex;
 }
 
-.contacte1{
-    margin-left:1100px;
-    margin-top:10px;
-    font-size:22px;
-    cursor:pointer;
-    color:rgb(65, 106, 33);
-}
-
-.contacte2{
-    margin-left:30px;
-    margin-top:10px;
-    font-size:22px;
-    cursor:pointer;
-    color:rgb(65, 106, 33);
-}
-
-.contacte-name{
-    margin-left:20px;
-    font-size:23px;
-    margin-top:10px;
-}
-
 .container-scroll {
     height: 700vh; 
     width: 100%;
@@ -391,6 +362,7 @@ h1#logo {
 .text-add{
     margin-left:160px;
     margin-top:280px;
+    cursor: pointer;
 }
 
 
@@ -621,3 +593,14 @@ h1#logo {
 .checkout-button:hover {
     background-color: #1d4ed8;
 }
+
+#containerAnimatie {
+    pointer-events: none;
+}
+
+#containerAnimatie .imagine-fundal,
+#containerAnimatie .sectiunea2-1head,
+#containerAnimatie .sectiunea2-2head {
+    pointer-events: auto;
+}
+

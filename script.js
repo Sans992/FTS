@@ -1,173 +1,161 @@
-    // După 4 secunde, ascundem ecranul de încărcare și animăm pagina principală
+setTimeout(() => {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.transition = 'transform 1s ease-in-out';
+    loadingScreen.style.transform = 'translateY(-60%)'; 
+
     setTimeout(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.style.transition = 'transform 1s ease-in-out';
-        loadingScreen.style.transform = 'translateY(-60%)'; // Ridicăm ecranul
-
+        loadingScreen.style.display = 'none'; 
+        const mainContent = document.getElementById('main-content');
+        mainContent.style.display = 'block'; 
         setTimeout(() => {
-            loadingScreen.style.display = 'none'; // Ascundem complet după animație
-            const mainContent = document.getElementById('main-content');
-            mainContent.style.display = 'block'; // Afișăm conținutul
-            setTimeout(() => {
-                mainContent.style.opacity = 1; // Aplicăm efectul de fade-in
-            }, 50); // Mică întârziere pentru tranziție
-        }, 800); // Așteptăm ca animația să se termine
-    }, 2300); // Setăm durata totală la 3 secunde
-
+            mainContent.style.opacity = 1; 
+        }, 50); 
+    }, 800); 
+}, 2300); 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const containerAnimatie = document.querySelector('.container-animatie');
-  const sectiune1 = document.getElementById('sectiune1');
-  const sectiune2 = document.getElementById('sectiune2');
-  
-  function updateRotation() {
-    const scrollPosition = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const startPosition = windowHeight * 5; //viewport
-    const endPosition = startPosition + windowHeight; 
-    
-    let progress = (scrollPosition - startPosition) / (endPosition - startPosition);
-    progress = Math.max(0, Math.min(1, progress));
-    
-    const rotation = progress * 180;
-    
-    sectiune1.style.transform = `rotateX(${rotation}deg)`;
-    sectiune2.style.transform = `rotateX(${180 + rotation}deg)`;
-    
-    if (scrollPosition >= startPosition * 0.8 && scrollPosition <= endPosition * 1.2) {
-      containerAnimatie.style.opacity = '1';
-      containerAnimatie.style.visibility = 'visible';
-    } else {
-      containerAnimatie.style.opacity = '0';
-      containerAnimatie.style.visibility = 'hidden';
-    }
-  }
+    const containerAnimatie = document.querySelector('.container-animatie');
+    const sectiune1 = document.getElementById('sectiune1');
+    const sectiune2 = document.getElementById('sectiune2');
 
-  window.addEventListener('scroll', () => {
-    requestAnimationFrame(updateRotation);
-  });
+    function updateRotation() {
+        const scrollPosition = window.pageYOffset;
+        const startPosition = 2500; // pozitia de unde se porneste
+        const endPosition = startPosition + 3250; //sfarsit
 
-  updateRotation();
-});
+        let progress = (scrollPosition - startPosition) / (endPosition - startPosition);
+        progress = Math.max(0, Math.min(1, progress));
 
-class Cart {
-    constructor() {
-        this.items = [];
-    }
+        const rotation = progress * 180;
 
-    addItem(productId, color) {
-        const existingItem = this.items.find(item => item.id === productId && item.color.name === color);
-        if (existingItem) {
-            existingItem.quantity += 1;
+        sectiune1.style.transform = `rotateX(${rotation}deg)`;
+        sectiune2.style.transform = `rotateX(${180 + rotation}deg)`;
+
+        if (scrollPosition >= startPosition * 0.8 && scrollPosition <= endPosition * 1.2) {
+            containerAnimatie.style.opacity = '1';
+            containerAnimatie.style.visibility = 'visible';
         } else {
-            const newItem = {
-                id: productId,
-                name: `Product ${productId}`,
-                color: { name: color },
-                quantity: 1,
-                price: 100 // Example price, replace with actual price
-            };
-            this.items.push(newItem);
-        }
-        this.updateUI();
-    }
-
-    updateQuantity(productId, color, quantity) {
-        const item = this.items.find(item => item.id === productId && item.color.name === color);
-        if (item) {
-            item.quantity = quantity;
-            if (item.quantity <= 0) {
-                this.removeItem(productId, color);
-            } else {
-                this.updateUI();
-            }
+            containerAnimatie.style.opacity = '0';
+            containerAnimatie.style.visibility = 'hidden';
         }
     }
 
-    removeItem(productId, color) {
-        this.items = this.items.filter(item => !(item.id === productId && item.color.name === color));
-        this.updateUI();
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateRotation);
+    });
+
+    const addToCartButtons = document.querySelectorAll('.text-add');
+    const cartCountElement = document.getElementById('cartCount');
+    const cartItemsElement = document.getElementById('cartItems');
+    const cartTotalElement = document.getElementById('cartTotal');
+    const cartModal = document.getElementById('cartModal');
+    const closeCartButton = document.getElementById('closeCart');
+    const checkoutButton = document.getElementById('checkoutButton');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const productId = button.getAttribute('data-id');
+            addToCart(productId);
+        });
+    });
+
+    function addToCart(productId) {
+
+        const existingProduct = cart.find(product => product.id === productId);
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            const product = { id: productId, name: `Produs ${productId}`, price: 170, quantity: 1 }; 
+            cart.push(product);
+        }
+        updateCartUI();
+        saveCart();
     }
 
-    getTotal() {
-        return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
-    }
+    function updateCartUI() {
 
-    updateUI() {
-        const cartItems = document.getElementById('cartItems');
-        cartItems.innerHTML = '';
+        cartCountElement.textContent = cart.length;
 
-        this.items.forEach(item => {
-            const itemElement = document.createElement('div');
-            itemElement.className = 'cart-item';
-            itemElement.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        cartItemsElement.innerHTML = '';
+        cart.forEach(product => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="poze/poza${product.id}.webp" alt="${product.name}" class="cart-item-image">
                 <div class="cart-item-details">
-                    <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-price">Price: ${item.price} MDL</div>
+                    <p class="cart-item-name">${product.name}</p>
+                    <p class="cart-item-price">${product.price} Lei</p>
                     <div class="quantity-controls">
-                        <button class="quantity-button" onclick="cart.updateQuantity('${item.id}', '${item.color.name}', ${item.quantity - 1})">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="quantity-button" onclick="cart.updateQuantity('${item.id}', '${item.color.name}', ${item.quantity + 1})">+</button>
+                        <button class="decrease-quantity" data-id="${product.id}">-</button>
+                        <span class="quantity">${product.quantity}</span>
+                        <button class="increase-quantity" data-id="${product.id}">+</button>
                     </div>
                 </div>
-                <button class="remove-item" onclick="cart.removeItem('${item.id}', '${item.color.name}')">Elimină</button>
             `;
-            cartItems.appendChild(itemElement);
+            cartItemsElement.appendChild(cartItem);
         });
 
-        const cartTotal = document.getElementById('cartTotal');
-        cartTotal.textContent = this.getTotal().toFixed(2);
+        const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+        cartTotalElement.textContent = total.toFixed(2);
+
+        // controleaza cantitatea
+        const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+        const increaseButtons = document.querySelectorAll('.increase-quantity');
+
+        decreaseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                updateQuantity(productId, -1);
+            });
+        });
+
+        increaseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                updateQuantity(productId, 1);
+            });
+        });
     }
-}
 
-// Initialize cart
-const cart = new Cart();
+    function updateQuantity(productId, change) {
+        const product = cart.find(product => product.id === productId);
+        if (product) {
+            product.quantity += change;
+            if (product.quantity <= 0) {
+                cart = cart.filter(product => product.id !== productId);
+            }
+            updateCartUI();
+            saveCart();
+        }
+    }
 
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 
-// Attach event listeners to "Adaugă în coș" buttons
-document.querySelectorAll('.text-add').forEach(button => {
-    button.addEventListener('click', event => {
-        event.preventDefault();
-        const productId = parseInt(button.getAttribute('data-id'));
-        const selectedColorButton = document.querySelector(`#colors-${productId} .color-option.selected`);
-        if (selectedColorButton) {
-            const color = selectedColorButton.textContent;
-            cart.addItem(productId, color);
+    closeCartButton.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+    });
 
+    document.getElementById('cartButton').addEventListener('click', () => {
+        cartModal.style.display = 'block';
+    });
+
+    // controleaza cosul
+    checkoutButton.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('Coșul este gol!');
+        } else {
+            alert('Comanda a fost finalizată!');
+            cart = [];
+            updateCartUI();
+            saveCart();
+            cartModal.style.display = 'none';
         }
     });
-});
 
-// Cart modal controls
-const cartButton = document.getElementById('cartButton');
-const cartModal = document.getElementById('cartModal');
-const closeCart = document.getElementById('closeCart');
-const checkoutButton = document.getElementById('checkoutButton');
-
-cartButton.addEventListener('click', () => {
-    cartModal.classList.add('open');
-});
-
-closeCart.addEventListener('click', () => {
-    cartModal.classList.remove('open');
-});
-
-checkoutButton.addEventListener('click', () => {
-    if (cart.items.length === 0) {
-        alert('Coșul este gol');
-        return;
-    }
-    alert('Procesul de checkout va fi implementat aici');
-});
-
-// Select first color for each product on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const productIds = [1, 2, 3, 4];
-    productIds.forEach(id => {
-        const firstColorButton = document.querySelector(`#colors-${id} .color-option`);
-        if (firstColorButton) {
-            selectColor(firstColorButton, id);
-        }
-    });
+    updateCartUI();
 });
