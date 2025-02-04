@@ -15,147 +15,193 @@ setTimeout(() => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const containerAnimatie = document.querySelector('.container-animatie');
-    const sectiune1 = document.getElementById('sectiune1');
     const sectiune2 = document.getElementById('sectiune2');
 
-    function updateRotation() {
+    function updatePosition() {
         const scrollPosition = window.pageYOffset;
-        const startPosition = 2500; // pozitia de unde se porneste
-        const endPosition = startPosition + 3250; //sfarsit
+        const windowHeight = window.innerHeight;
+        const startPosition = windowHeight * 0.5; 
+        const endPosition = startPosition + windowHeight;
 
         let progress = (scrollPosition - startPosition) / (endPosition - startPosition);
         progress = Math.max(0, Math.min(1, progress));
 
-        const rotation = progress * 180;
+        const leftPosition = progress * 100 - 100; // De la -100% la 0%
 
-        sectiune1.style.transform = `rotateX(${rotation}deg)`;
-        sectiune2.style.transform = `rotateX(${180 + rotation}deg)`;
-
-        if (scrollPosition >= startPosition * 0.8 && scrollPosition <= endPosition * 1.2) {
-            containerAnimatie.style.opacity = '1';
-            containerAnimatie.style.visibility = 'visible';
-        } else {
-            containerAnimatie.style.opacity = '0';
-            containerAnimatie.style.visibility = 'hidden';
-        }
+        sectiune2.style.left = `${leftPosition}%`;
     }
 
     window.addEventListener('scroll', () => {
-        requestAnimationFrame(updateRotation);
+        requestAnimationFrame(updatePosition);
+    });
+});
+
+const addToCartButtons = document.querySelectorAll('.text-add');
+const cartCountElement = document.getElementById('cartCount');
+const cartItemsElement = document.getElementById('cartItems');
+const cartTotalElement = document.getElementById('cartTotal');
+const cartModal = document.getElementById('cartModal');
+const closeCartButton = document.getElementById('closeCart');
+const checkoutButton = document.getElementById('checkoutButton');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const productId = button.getAttribute('data-id');
+        addToCart(productId);
+    });
+});
+
+function addToCart(productId) {
+    // Verifică dacă produsul există deja în coș
+    const existingProduct = cart.find(product => product.id === productId);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        const product = { id: productId, name: `Produs ${productId}`, price: 170, quantity: 1 }; // Exemplu de produs
+        cart.push(product);
+    }
+    updateCartUI();
+    saveCart();
+}
+
+function updateCartUI() {
+    // Actualizează numărul de produse din coș
+    cartCountElement.textContent = cart.length;
+
+    // Actualizează lista de produse din coș
+    cartItemsElement.innerHTML = '';
+    cart.forEach(product => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <img src="poze/poza${product.id}.webp" alt="${product.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <p class="cart-item-name">${product.name}</p>
+                <p class="cart-item-price">${product.price} Lei</p>
+                <div class="quantity-controls">
+                    <button class="decrease-quantity" data-id="${product.id}">-</button>
+                    <span class="quantity">${product.quantity}</span>
+                    <button class="increase-quantity" data-id="${product.id}">+</button>
+                </div>
+            </div>
+        `;
+        cartItemsElement.appendChild(cartItem);
     });
 
-    const addToCartButtons = document.querySelectorAll('.text-add');
-    const cartCountElement = document.getElementById('cartCount');
-    const cartItemsElement = document.getElementById('cartItems');
-    const cartTotalElement = document.getElementById('cartTotal');
-    const cartModal = document.getElementById('cartModal');
-    const closeCartButton = document.getElementById('closeCart');
-    const checkoutButton = document.getElementById('checkoutButton');
+    // Actualizează totalul coșului
+    const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+    cartTotalElement.textContent = total.toFixed(2);
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Adaugă evenimente pentru butoanele de modificare a cantității
+    const decreaseButtons = document.querySelectorAll('.decrease-quantity');
+    const increaseButtons = document.querySelectorAll('.increase-quantity');
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
+    decreaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
             const productId = button.getAttribute('data-id');
-            addToCart(productId);
+            updateQuantity(productId, -1);
         });
     });
 
-    function addToCart(productId) {
+    increaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-id');
+            updateQuantity(productId, 1);
+        });
+    });
+}
 
-        const existingProduct = cart.find(product => product.id === productId);
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            const product = { id: productId, name: `Produs ${productId}`, price: 170, quantity: 1 }; 
-            cart.push(product);
+function updateQuantity(productId, change) {
+    const product = cart.find(product => product.id === productId);
+    if (product) {
+        product.quantity += change;
+        if (product.quantity <= 0) {
+            cart = cart.filter(product => product.id !== productId);
         }
         updateCartUI();
         saveCart();
     }
+}
 
-    function updateCartUI() {
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-        cartCountElement.textContent = cart.length;
+// Gestionarea închiderii coșului
+closeCartButton.addEventListener('click', () => {
+    cartModal.style.display = 'none';
+});
 
-        cartItemsElement.innerHTML = '';
-        cart.forEach(product => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `
-                <img src="poze/poza${product.id}.webp" alt="${product.name}" class="cart-item-image">
-                <div class="cart-item-details">
-                    <p class="cart-item-name">${product.name}</p>
-                    <p class="cart-item-price">${product.price} Lei</p>
-                    <div class="quantity-controls">
-                        <button class="decrease-quantity" data-id="${product.id}">-</button>
-                        <span class="quantity">${product.quantity}</span>
-                        <button class="increase-quantity" data-id="${product.id}">+</button>
-                    </div>
-                </div>
-            `;
-            cartItemsElement.appendChild(cartItem);
-        });
+// Gestionarea deschiderii coșului
+document.getElementById('cartButton').addEventListener('click', () => {
+    cartModal.style.display = 'block';
+});
 
-        const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
-        cartTotalElement.textContent = total.toFixed(2);
-
-        // controleaza cantitatea
-        const decreaseButtons = document.querySelectorAll('.decrease-quantity');
-        const increaseButtons = document.querySelectorAll('.increase-quantity');
-
-        decreaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const productId = button.getAttribute('data-id');
-                updateQuantity(productId, -1);
-            });
-        });
-
-        increaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const productId = button.getAttribute('data-id');
-                updateQuantity(productId, 1);
-            });
-        });
-    }
-
-    function updateQuantity(productId, change) {
-        const product = cart.find(product => product.id === productId);
-        if (product) {
-            product.quantity += change;
-            if (product.quantity <= 0) {
-                cart = cart.filter(product => product.id !== productId);
-            }
-            updateCartUI();
-            saveCart();
-        }
-    }
-
-    function saveCart() {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-
-    closeCartButton.addEventListener('click', () => {
+// Gestionarea finalizării comenzii
+checkoutButton.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert('Coșul este gol!');
+    } else {
+        alert('Comanda a fost finalizată!');
+        cart = [];
+        updateCartUI();
+        saveCart();
         cartModal.style.display = 'none';
-    });
+    }
+});
 
-    document.getElementById('cartButton').addEventListener('click', () => {
-        cartModal.style.display = 'block';
-    });
+// Încarcă coșul din localStorage la încărcarea paginii
+updateCartUI();
 
-    // controleaza cosul
-    checkoutButton.addEventListener('click', () => {
-        if (cart.length === 0) {
-            alert('Coșul este gol!');
-        } else {
-            alert('Comanda a fost finalizată!');
-            cart = [];
-            updateCartUI();
-            saveCart();
-            cartModal.style.display = 'none';
+let currentTranslate = -100;
+let targetTranslate = -100;
+const smoothFactor = 0.05;  // Mai mic = mișcare mai lină
+const scrollFactor = 1.2;   // Crește distanța necesară pentru animație
+
+let ticking = false;
+
+function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+}
+
+function updateOverlay() {
+    currentTranslate = lerp(currentTranslate, targetTranslate, smoothFactor);
+    document.querySelector('.image-overlay').style.transform = `translateX(${currentTranslate}%)`;
+
+    // Continuă animația doar dacă diferența este vizibilă
+    if (Math.abs(currentTranslate - targetTranslate) > 0.1) {
+        requestAnimationFrame(updateOverlay);
+    } else {
+        ticking = false;
+    }
+}
+
+document.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const triggerHeight = 4500;
+
+    // Only start animation after reaching trigger height
+    if (scrollPosition >= triggerHeight) {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const effectiveScroll = scrollPosition - triggerHeight;
+        const scrollPercentage = effectiveScroll / (maxScroll - triggerHeight);
+
+        targetTranslate = -100 + (scrollPercentage * 100 * scrollFactor);
+        targetTranslate = Math.min(targetTranslate, 0);
+
+        if (!ticking) {
+            requestAnimationFrame(updateOverlay);
+            ticking = true;
         }
-    });
-
-    updateCartUI();
+    } else {
+        // Reset position when above trigger height
+        targetTranslate = -100;
+        if (!ticking) {
+            requestAnimationFrame(updateOverlay);
+            ticking = true;
+        }
+    }
 });

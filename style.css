@@ -5,15 +5,11 @@ body{
     color:rgb(65, 106, 33);
     margin: 0; 
     padding: 0; 
-    display: flex;
     flex-direction: column;
     align-items: center; 
-}
-
-.carattere-regular {
-    font-family: "Carattere", serif;
-    font-weight: 400;
-    font-style: normal;
+    flex-wrap: wrap;
+    display:flex;
+    overflow: visible;
 }
 
 .head-text{
@@ -23,20 +19,19 @@ body{
 }
 
 .head-text2{
-	text-indent:700px;
+	margin-left:30%;
 	font-size:20px;
 	display:inline-block;
 }
 
 .head-text3{
-	margin-left:1020px;
+	margin-left:20%;
 	font-size:20px;
-	display:flex;
 	margin-top:-56px;
 }
 
 .head-text4{
-	margin-left:1250px;
+	margin-left:50%;
 	font-size:20px;
 	margin-top:-40px;
 }
@@ -208,7 +203,6 @@ h1#logo {
     background-color:rgb(65, 106, 33);
     border: none;
     border-radius:3px;
-    display:flex;
 }
 
 .contacte{
@@ -217,7 +211,6 @@ h1#logo {
     height:50px;
     border-radius: 0px 0px 5px 5px;
     margin-top:-150px;
-    display:flex;
 }
 
 .linie2{
@@ -226,7 +219,7 @@ h1#logo {
     background-color:rgb(65, 106, 33);
     border: none;
     border-radius:3px;
-    display:flex;
+    
 
 }
 
@@ -234,7 +227,6 @@ h1#logo {
     color:rgb(65, 106, 33);
     font-size:50px;
     margin-top:150px;
-    display:flex;
 }
 
 .linie3{
@@ -244,7 +236,6 @@ h1#logo {
     background-color:rgb(65, 106, 33);
     border: none;
     border-radius:3px;
-    display:flex;
 }
 
 .ingrasaminte-name{
@@ -252,29 +243,21 @@ h1#logo {
     color:rgb(65, 106, 33);
     font-size:50px;
     margin-top:150px;
-    display:flex;
 }
 
 .container-scroll {
+    margin-left:-1300px;
     height: 700vh; 
     width: 100%;
     position: relative;
 }
 
-
 .container-animatie {
+    position: relative;
     width: 100%;
     height: 100vh;
-    perspective: 1000px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-    z-index: 100;
+    overflow: hidden; 
 }
-
 .container-animatie.vizibil {
     opacity: 1;
     visibility: visible;
@@ -282,15 +265,9 @@ h1#logo {
 }
 
 .sectiune {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    transition: transform 0.6s ease-out;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
 #sectiune1{
@@ -298,11 +275,18 @@ h1#logo {
 }
 
 #sectiune2 {
-    background-color: black;
-    opacity:0.9;
-    transform: rotateX(180deg);
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    left: 0; 
+    top: 500px;
+    height:100vh;
+    transition: left 1s ease-out; 
+}
+
+.sectiunea2-1head, .sectiunea2-2head {
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 100%;
 }
 
 #sectiune2 .imagine-fundal {
@@ -311,16 +295,12 @@ h1#logo {
     object-fit: cover;
     position: absolute;
     top: 0;
-    left: 0;
-    z-index: -1;
 }
 
 .imagine-fundal {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity:0.4;
-
 }
 
 .continut-text h1 {
@@ -335,22 +315,6 @@ h1#logo {
     font-size: 1.5rem;
     margin-top: 1rem;
     letter-spacing: 0.1em;
-}
-
-.sectiunea2-1head{
-    font-size: 200px;
-    margin-top: 200px;
-    margin-left:200px;
-    color:white;
-    display:flex;
-}
-
-.sectiunea2-2head{
-    font-size: 200px;
-    margin-top:-100px;
-    margin-left:1000px;
-    color:white;
-    display:flex;
 }
 
 .text-informatie{
@@ -405,26 +369,6 @@ h1#logo {
 .product-price {
     color: #666;
     margin-bottom: 1rem;
-}
-
-.color-options {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.color-option {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.color-option.selected {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 2px white, 0 0 0 4px #2563eb;
 }
 
 .add-to-cart {
@@ -557,6 +501,7 @@ h1#logo {
 
 .cart-item-price {
     text-align: right;
+
 }
 
 .remove-item {
@@ -577,6 +522,7 @@ h1#logo {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
+
 }
 
 .checkout-button {
@@ -604,3 +550,23 @@ h1#logo {
     pointer-events: auto;
 }
 
+.scroll-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none; /* This allows clicking through the container */
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+    pointer-events: none; /* This ensures the overlay itself is also click-through */
+}
