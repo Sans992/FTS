@@ -1,4 +1,4 @@
-<!--WJT incercarea nr.2-->
+<!--WJT recode nr.2-->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Carattere&family=Charm:wght@400;700&family=Italiana&display=swap" rel="stylesheet">
 </head>
 <body >
-    <!-- ecranul de încărcare -->
+    <!-- Ecranul de încărcare -->
 <div id="loading-screen">
     <h1 id="logo-splash">LOGO</h1>
     <div id="loading-line"></div>
@@ -32,10 +32,11 @@
                 <button class="close-button" id="closeCart">✕</button>
             </div>
             <div class="cart-items" id="cartItems">
+                <!-- Cart items will be added here -->
             </div>
             <div class="cart-footer">
                 <div class="cart-total">
-                    Total: <span id="cartTotal">0.00</span> Lei
+                    Total: <span id="cartTotal">0.00</span> RON
                 </div>
                 <button class="checkout-button" id="checkoutButton">
                     Finalizează comanda
@@ -50,12 +51,18 @@
 	<h1 class="head-text">Logo</h1>
 	<h1 class="head-text2">Produse</h1>
 	<h1 class="head-text3">Decoratii</h1>
-	<h1 class="head-text4">Contacte</h1><br>
+	<button class="head-button">Cos</button><br>
 </div>
 
+<!--contacte-->
 <div>
     <hr class="linie">
     <div class="contacte">
+        <p class="contacte-name">Contacte</p>
+           <a src="poze/maps.png" class="contacte1">Maps</a>
+           <a src="poze/facebook.png" class="contacte2">Facebook</a>
+           <a src="poze/phone.png" class="contacte2">Telefon</a>
+    </div>
 </div>
 
 <!--introducere cu poze-->
@@ -75,81 +82,46 @@
 <div style="margin-top:100px;">
     <div class="card-container">
         <!-- Front Card -->
-        <div class="flori-carte front">
+        <div class="flori-carte-reducere front">
             <img src="poze/poza1.webp" alt="flori" class="img-carte">
             <p class="text-carte">Ardisia crenata<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
         </div>
-    
+
         <!-- Back Card -->
-        <div class="flori-carte back" data-id="1">
+        <div class="flori-carte-reducere back">
             <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-            <a class="text-add" data-id="1">Adauga în cos</a>
+            <button class=" text-add" onclick="addToCart(1)" onclick="selectColor(this, 1)">Adaugă în coș</button>
         </div>
-    </div>
-    
-    <div style="margin-top:-400px;margin-left:430px">
-        <div class="card-container">
-            <!-- Front Card -->
-            <div class="flori-carte front">
-                <img src="poze/poza2.webp" alt="flori" class="img-carte">
-                <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
-            </div>
-    
-            <!-- Back Card -->
-            <div class="flori-carte back" data-id="2">
-                <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="2">Adauga în cos</a>
-            </div>
-        </div>
-    </div>
+</div>
 
-    <div style="margin-top:-400px;margin-left:860px">
-        <div class="card-container">
-            <!-- Front Card -->
-            <div class="flori-carte front">
-                <img src="poze/poza2.webp" alt="flori" class="img-carte">
-                <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
-            </div>
-    
-            <!-- Back Card -->
-            <div class="flori-carte back" data-id="2">
-                <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="3">Adauga în cos</a>
-            </div>
-        </div>
-    </div>
-
-    <div style="margin-top:-400px;margin-left:1290px">
-        <div class="card-container">
-            <!-- Front Card -->
-            <div class="flori-carte front">
-                <img src="poze/poza2.webp" alt="flori" class="img-carte">
-                <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
-            </div>
-    
-            <!-- Back Card -->
-            <div class="flori-carte back" data-id="2">
-                <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="4">Adaugă în coș</a>
-            </div>
-        </div>
-    </div>
-
-<!--2 linie de flori-->
-
-<div style="margin-top:100px;margin-left:0px">
+<div style="margin-top:-400px;margin-left:430px">
     <div class="card-container">
         <!-- Front Card -->
         <div class="flori-carte front">
+            <img src="poze/poza2.webp" alt="flori" class="img-carte">
+            <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
+            <button class=" text-add" onclick="addToCart(2)" onclick="selectColor(this, 2)">Adaugă în coș</button>
+    </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte-nostock front">
             <img src="poze/poza2.webp" alt="flori" class="img-carte">
             <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
-        <div class="flori-carte back">
+        <div class="flori-carte-nostock back">
             <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
-            <a href="pagini/trandafir-roz.html" class="text-add">Adaugă în coș</a>
+            <a href="pagini/trandafir-roz.html" class="text-add-nostock">Nu E In Stoc</a>
         </div>
 </div>
 
@@ -164,6 +136,40 @@
 
         <!-- Back Card -->
         <div class="flori-carte back">
+            <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
+            <a href="pagini/trandafir-roz.html" class="text-add">Adauga In Cos</a>
+        </div>
+</div>
+
+<!--2 linie de flori-->
+
+<div style="margin-top:100px;margin-left:-1290px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte-nostock front">
+            <img src="poze/poza2.webp" alt="flori" class="img-carte">
+            <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
+
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte-nostock back">
+            <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
+            <a href="pagini/trandafir-roz.html" class="text-add-nostock">Nu E In Stoc</a>
+        </div>
+</div>
+
+<div style="margin-top:-400px;margin-left:430px">
+    <div class="card-container">
+        <!-- Front Card -->
+        <div class="flori-carte-reducere front">
+            <img src="poze/poza2.webp" alt="flori" class="img-carte">
+            <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
+
+        </div>
+
+        <!-- Back Card -->
+        <div class="flori-carte-reducere back">
             <a href="pagini/trandafir-roz.html" class="text-informatie">Informatie</a>
             <a href="pagini/trandafir-roz.html" class="text-add">Adauga In Cos</a>
         </div>
@@ -346,13 +352,21 @@
 </div>
 
 
-<!--oferte trecere-->
-<div class="scroll-container">
-    <div class="image-overlay"></div>
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--Oferte trecere-->
+<div class="container-scroll">
+<div class="container-animatie" id="containerAnimatie">
+<div class="sectiune" id="sectiune1">
+    <img src="poze/alb.png" alt="Echipa" class="imagine-fundal">
+</div>
+
+<div class="sectiune" id="sectiune2">
+    <img src="poze/magazin2.jpg" alt="Background" class="imagine-fundal">
+    <div>
+        <p class="sectiunea2-1head">DECORATII</p>
+        <p class="sectiunea2-2head">CADOU</p>
+    </div>
+</div>
+
 <script src="script.js"></script>
 
 </body>
