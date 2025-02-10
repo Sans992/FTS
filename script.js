@@ -153,58 +153,8 @@ checkoutButton.addEventListener('click', () => {
     }
 });
 
-// Încarcă coșul din localStorage la încărcarea paginii
+// Încarcă coșul din Storage la încărcarea paginii
 updateCartUI();
-
-let currentTranslate = -100;
-let targetTranslate = -100;
-const smoothFactor = 0.03;  // Mai mic = mișcare mai lină
-const scrollFactor = 2.5;   // Crește distanța necesară pentru animație
-
-let ticking = false;
-
-function lerp(start, end, factor) {
-    return start + (end - start) * factor;
-}
-
-function updateOverlay() {
-    currentTranslate = lerp(currentTranslate, targetTranslate, smoothFactor);
-    document.querySelector('.image-overlay').style.transform = `translateX(${currentTranslate}%)`;
-
-    // Continuă animația doar dacă diferența este vizibilă
-    if (Math.abs(currentTranslate - targetTranslate) > 0.1) {
-        requestAnimationFrame(updateOverlay);
-    } else {
-        ticking = false;
-    }
-}
-
-document.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const triggerHeight = 4500;
-
-    // Only start animation after reaching trigger height
-    if (scrollPosition >= triggerHeight) {
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const effectiveScroll = scrollPosition - triggerHeight;
-        const scrollPercentage = effectiveScroll / (maxScroll - triggerHeight);
-
-        targetTranslate = -100 + (scrollPercentage * 100 * scrollFactor);
-        targetTranslate = Math.min(targetTranslate, 0);
-
-        if (!ticking) {
-            requestAnimationFrame(updateOverlay);
-            ticking = true;
-        }
-    } else {
-        // Reset position when above trigger height
-        targetTranslate = -100;
-        if (!ticking) {
-            requestAnimationFrame(updateOverlay);
-            ticking = true;
-        }
-    }
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerMenu = document.getElementById('hamburgerMenu');
@@ -226,4 +176,98 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNav.classList.remove('active');
         }
     });
+});
+
+let currentTranslate = -100;
+let targetTranslate = -100;
+let currentTranslate2 = 100;
+let targetTranslate2 = 100;
+let currentTranslate3 = -100;
+let targetTranslate3 = -100;
+let currentTranslate4 = 100;
+let targetTranslate4 = 100;
+const smoothFactor = 0.05;
+const scrollFactor = 1.2;
+
+let ticking = false;
+
+function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+}
+
+function updateOverlay() {
+    currentTranslate = lerp(currentTranslate, targetTranslate, smoothFactor);
+    currentTranslate2 = lerp(currentTranslate2, targetTranslate2, smoothFactor);
+    currentTranslate3 = lerp(currentTranslate3, targetTranslate3, smoothFactor);
+    currentTranslate4 = lerp(currentTranslate4, targetTranslate4, smoothFactor);
+    
+    document.querySelector('.image-overlay').style.transform = `translateX(${currentTranslate}%)`;
+    document.querySelector('.image-overlay-2').style.transform = `translateX(${currentTranslate2}%)`;
+    document.querySelector('.image-overlay-3').style.transform = `translateX(${currentTranslate3}%)`;
+    document.querySelector('.image-overlay-4').style.transform = `translateX(${currentTranslate4}%)`;
+
+    if (
+        Math.abs(currentTranslate - targetTranslate) > 0.1 || 
+        Math.abs(currentTranslate2 - targetTranslate2) > 0.1 ||
+        Math.abs(currentTranslate3 - targetTranslate3) > 0.1 ||
+        Math.abs(currentTranslate4 - targetTranslate4) > 0.1
+    ) {
+        requestAnimationFrame(updateOverlay);
+    } else {
+        ticking = false;
+    }
+}
+
+document.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const triggerHeight = 4500; 
+    const animationDistance = 1500;
+    const delayDistance = 1500; 
+    
+    // Calculate trigger heights for each animation
+    const triggerHeight2 = triggerHeight + animationDistance + delayDistance;
+    const triggerHeight3 = triggerHeight2 + animationDistance + delayDistance;
+    const triggerHeight4 = triggerHeight3 + animationDistance + delayDistance;
+
+    if (scrollPosition >= triggerHeight) {
+        // First overlay animation (left to right)
+        const firstAnimationProgress = Math.min((scrollPosition - triggerHeight) / animationDistance, 1);
+        targetTranslate = -100 + (firstAnimationProgress * 100);
+        targetTranslate = Math.min(targetTranslate, 0);
+
+        // Second overlay animation (right to left)
+        if (scrollPosition >= triggerHeight2) {
+            const secondAnimationProgress = Math.min((scrollPosition - triggerHeight2) / animationDistance, 1);
+            targetTranslate2 = 100 - (secondAnimationProgress * 100);
+            targetTranslate2 = Math.max(targetTranslate2, 0);
+
+            // Third overlay animation (left to right)
+            if (scrollPosition >= triggerHeight3) {
+                const thirdAnimationProgress = Math.min((scrollPosition - triggerHeight3) / animationDistance, 1);
+                targetTranslate3 = -100 + (thirdAnimationProgress * 100);
+                targetTranslate3 = Math.min(targetTranslate3, 0);
+
+                // Fourth overlay animation (right to left)
+                if (scrollPosition >= triggerHeight4) {
+                    const fourthAnimationProgress = Math.min((scrollPosition - triggerHeight4) / animationDistance, 1);
+                    targetTranslate4 = 100 - (fourthAnimationProgress * 100);
+                    targetTranslate4 = Math.max(targetTranslate4, 0);
+                }
+            }
+        }
+
+        if (!ticking) {
+            requestAnimationFrame(updateOverlay);
+            ticking = true;
+        }
+    } else {
+        targetTranslate = -100;
+        targetTranslate2 = 100;
+        targetTranslate3 = -100;
+        targetTranslate4 = 100;
+        if (!ticking) {
+            requestAnimationFrame(updateOverlay);
+            ticking = true;
+        }
+    }
 });
