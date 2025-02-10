@@ -28,7 +28,7 @@ Site-ul este conceput pentru a demonstra creativitatea și abilitățile noastre
 
 - Main Developer [@Sans992](https://github.com/Sans992)
 - Second Developer [@Dany0443](https://github.com/Dany0443) 
-- Telegram: [@Alexandru](https://t.me/WJThead) [@Dan](https://t.me/Dany0443) 
+- Telegram: [@Alexandru](https://t.me/WJTMainDev) [@Dan](https://t.me/Dany0443) 
 
 
 
