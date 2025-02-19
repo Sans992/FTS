@@ -50,17 +50,20 @@ addToCartButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         event.preventDefault();
         const productId = button.getAttribute('data-id');
-        addToCart(productId);
+        const productName = button.getAttribute('data-name');
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+        const productImage = button.getAttribute('data-image');
+        addToCart(productId, productName, productPrice, productImage);
     });
 });
 
-function addToCart(productId) {
+function addToCart(productId, productName, productPrice, productImage) {
     // Verifică dacă produsul există deja în coș
     const existingProduct = cart.find(product => product.id === productId);
     if (existingProduct) {
         existingProduct.quantity += 1;
     } else {
-        const product = { id: productId, name: `Produs ${productId}`, price: 170, quantity: 1 }; // Exemplu de produs
+        const product = { id: productId, name: productName, price: productPrice, image: productImage, quantity: 1 };
         cart.push(product);
     }
     updateCartUI();
@@ -77,7 +80,7 @@ function updateCartUI() {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
         cartItem.innerHTML = `
-            <img src="poze/poza${product.id}.webp" alt="${product.name}" class="cart-item-image">
+            <img src="${product.image}" alt="${product.name}" class="cart-item-image">
             <div class="cart-item-details">
                 <p class="cart-item-name">${product.name}</p>
                 <p class="cart-item-price">${product.price} Lei</p>
@@ -153,8 +156,30 @@ checkoutButton.addEventListener('click', () => {
     }
 });
 
-// Încarcă coșul din Storage la încărcarea paginii
+// Încarcă coșul din localStorage la încărcarea paginii
 updateCartUI();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (!hamburgerMenu || !mobileNav) {
+        console.error("Elementele meniului nu au fost găsite!");
+        return;
+    }
+
+    // Deschide/închide meniul la click
+    hamburgerMenu.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+    });
+
+    // Închide meniul dacă utilizatorul dă click în afara lui
+    document.addEventListener('click', (event) => {
+        if (!mobileNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+            mobileNav.classList.remove('active');
+        }
+    });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerMenu = document.getElementById('hamburgerMenu');

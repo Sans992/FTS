@@ -14,7 +14,7 @@
 <body >
     <!-- ecranul de încărcare -->
 <div id="loading-screen">
-    <h1 id="logo-splash">LOGO</h1>
+    <img src="poze/logo.png" class="head-text">
     <div id="loading-line"></div>
     </div>
 </div>
@@ -58,7 +58,7 @@
 </div>
 
 <div style="margin-top:40px;">
-	<a href="index.html" class="head-text">Logo</a>
+	<a href="index.html" ><img src="poze/logo.png" class="head-text"></a>
 	<a href="#produs" class="head-text2">Produse</a>
 	<a href="#decor" class="head-text3">Decoratii</a>
     <a href="pagini/contacte.html" class="head-text4">Contacte</a><br>
@@ -67,14 +67,14 @@
 
 <div>
     <hr class="linie">
-    <div class="contacte">
+    <div class="contacte"><p style="margin-top:30px;position:absolute;color:white;margin-left:50px;">Disclaimer: Acest website a fost realizat în cadrul competiției „Tekwill Junior Ambassadors" organizată de proiectul „Tekwill în Fiecare Şcoală şi nu reflectă neapărat opinia proiectului.</p></div>
 </div>
 
 <!--introducere cu poze-->
 <div>
     <p class="introducere-text">Luci Boutique<br><br>cadoul perfect<br>pentru oricine</p>
-    <img src="poze/magazin.jpg" width="600px" class="introducere-poza">
-    <img src="poze/magazin2.jpg" width="850px" class="introducere-poza2">
+    <img src="poze/magazin.png" width="600px" class="introducere-poza">
+    <img src="poze/outside.png" width="850px" class="introducere-poza2">
 </div>
 
 <!--linie de delimitare-->
@@ -83,19 +83,20 @@
     <hr class="linie2">
 </div>
 
+
 <!--carti-->
 <div style="margin-top:100px;">
     <div class="card-container">
         <!-- Front Card -->
         <div class="flori-carte front">
-            <img src="poze/gh.png" alt="flori" class="img-carte">
-            <p class="text-carte">Guzmania Hope<br><br>Guzmania Hope este o plantă tropicală cu flori colorate, rezistentă.<br>170 MDL</p>
+            <img src="poze/gh.png" alt="Produs 1" class="img-carte">
+            <p class="text-carte">Guzmania Hope<br><br>Guzmania Hope este o plantă tropicală cu flori colorate, rezistentă.<br><br>170 MDL</p>
         </div>
         
         <!-- Back Card -->
         <div class="flori-carte back" data-id="1">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-            <a class="text-add" data-id="1">Adauga în cos</a>
+            <a class="text-add" data-id="1" data-name="Produs 1" data-price="10" >Adauga în cos</a>
         </div>
     </div>
     
@@ -104,13 +105,13 @@
             <!-- Front Card -->
             <div class="flori-carte front">
                 <img src="poze/al.png" alt="flori" class="img-carte">
-                <p class="text-carte">Anthurium Lilli<br><br>Anthurium Lilli este o plantă ornamentală cu flori roșii elegante.<br>170 MDL</p>
+                <p class="text-carte">Anthurium Lilli<br><br>Anthurium Lilli este o plantă ornamentală cu flori roșii elegante.<br><br>170 MDL</p>
             </div>
     
             <!-- Back Card -->
             <div class="flori-carte back" data-id="2">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="2">Adauga In Cos</a>
+                <a class="text-add" data-id="2" data-name="Produs 2" data-price="20">Adauga In Cos</a>
             </div>
         </div>
     </div>
@@ -120,13 +121,13 @@
             <!-- Front Card -->
             <div class="flori-carte front">
                 <img src="poze/lor.png" alt="flori" class="img-carte">
-                <p class="text-carte">Lilium Or Releeze <br><br>Lilium Or Releeze este o varietate de crin cu flori galbene.<br>170 MDL</p>
+                <p class="text-carte">Lilium Or Releeze <br><br>Lilium Or Releeze este o varietate de crin cu flori galbene.<br><br>170 MDL</p>
             </div>
     
             <!-- Back Card -->
             <div class="flori-carte back" data-id="2">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="3">Adauga în cos</a>
+                <a class="text-add" data-id="3" data-name="Produs 3" data-price="30">Adauga în cos</a>
             </div>
         </div>
     </div>
@@ -136,13 +137,13 @@
             <!-- Front Card -->
             <div class="flori-carte front">
                 <img src="poze/gt.png" alt="flori" class="img-carte">
-                <p class="text-carte">Guzmania Torch<br><br>Guzmania Torch este o plantă tropicală cu flori roșii strălucitoare.<br>170 MDL</p>
+                <p class="text-carte">Guzmania Torch<br><br>Guzmania Torch este o plantă tropicală cu flori roșii strălucitoare.<br><br>170 MDL</p>
             </div>
     
             <!-- Back Card -->
             <div class="flori-carte back" data-id="2">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="4">Adaugă în coș</a>
+                <a class="text-add" data-id="4" data-name="Produs 4" data-price="40">Adaugă în coș</a>
             </div>
         </div>
     </div>
@@ -154,14 +155,13 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/pwh.png" alt="flori" class="img-carte">
-            <p class="text-carte">Phal Wonder of Nature <br><br>Phal Wonder of Nature este o orhidee Phalaenopsis cu flori elegante și diverse culori.<br>170 MDL</p>
-
+            <p class="text-carte">Phal Wonder of Nature <br><br>Phal Wonder of Nature este o orhidee Phalaenopsis cu flori elegante și diverse culori.<br><br>170 MDL</p>
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="5">Adaugă în coș</a>
+                <a class="text-add" data-id="5" data-name="Produs 5" data-price="50">Adaugă în coș</a>
         </div>
 </div>
 
@@ -170,14 +170,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/cm.png" alt="flori" class="img-carte">
-            <p class="text-carte">Crocus mix<br><br>Crocus mix este un amestec de crocus, flori viu colorate primăvara.<br>170 MDL</p>
+            <p class="text-carte">Crocus mix<br><br>Crocus mix este un amestec de crocus, flori viu colorate primăvara.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="6">Adauga în cos</a>
+                <a class="text-add" data-id="6" data-name="Produs 6" data-price="60">Adauga în cos</a>
         </div>
 </div>
 
@@ -186,14 +186,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/kdl.png" alt="flori" class="img-carte">
-            <p class="text-carte">Kalanchoe double blossfeldiana <br><br>Kalanchoe double blossfeldiana este o plantă suculentă cu flori duble.<br>170 MDL</p>
+            <p class="text-carte" style="font-size: 22px;">Kalanchoe double blossfeldiana <br><br>Kalanchoe double blossfeldiana este o plantă suculentă cu flori duble.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="7">Adauga în cos</a>
+                <a class="text-add" data-id="7" data-name="Produs 7" data-price="70">Adauga în cos</a>
         </div>
 </div>
 
@@ -202,14 +202,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/zz.png" alt="flori" class="img-carte">
-            <p class="text-carte">Zamioculcas zamiifolia <br><br>Zamioculcas zamiifolia este o plantă ornamentală, ușor de întreținut, cu frunze lucioase.<br>170 MDL</p>
+            <p class="text-carte">Zamioculcas zamiifolia <br><br>Zamioculcas zamiifolia este o plantă ornamentală, ușor de întreținut, cu frunze lucioase.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="8">Adauga în cos</a>
+                <a class="text-add" data-id="8" data-name="Produs 8" data-price="80">Adauga în cos</a>
         </div>
 </div>
 
@@ -228,14 +228,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/sf.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Stephanotis Floribunda <br><br>Stephanotis floribunda este o plantă cu flori albe parfumate, adesea folosite la buchete.<br>170 MDL</p>
+            <p class="text-carte">Stephanotis Floribunda <br><br>Stephanotis floribunda este o plantă cu flori albe parfumate, adesea folosite la buchete.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="9">Adauga în cos</a>
+                <a class="text-add" data-id="9" data-name="Produs 9" data-price="90">Adauga în cos</a>
          </div>
 </div>
 
@@ -244,14 +244,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/tca.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Tillandsia Cyanea Anita<br><br>DTillandsia cyanea Anita este o plantă aeriană cu flori roz și frunze verzi.<br>170 MDL</p>
+            <p class="text-carte">Tillandsia Cyanea Anita<br><br>DTillandsia cyanea Anita este o plantă aeriană cu flori roz și frunze verzi.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="10">Adauga în cos</a>
+                <a class="text-add" data-id="10" data-name="Produs 10" data-price="100">Adauga în cos</a>
         </div>
 </div>
 
@@ -260,14 +260,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/po.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Phalaenopsis Orchid<br><br>Phalaenopsis Orchid este o orhidee elegantă, cu flori mari și colorate.<br>170 MDL</p>
+            <p class="text-carte">Phalaenopsis Orchid<br><br>Phalaenopsis Orchid este o orhidee elegantă, cu flori mari și colorate.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="11">Adauga în cos</a>
+                <a class="text-add" data-id="11" data-name="Produs 11" data-price="110">Adauga în cos</a>
         </div>
 </div>
 
@@ -276,14 +276,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/afk.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Anthurium Floriclone Koro<br><br>Anthurium Floriclone Koro este un anthurium cu flori roșii.<br>170 MDL</p>
+            <p class="text-carte">Anthurium Floriclone Koro<br><br>Anthurium Floriclone Koro este un anthurium cu flori roșii.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="12">Adauga în cos</a>
+                <a class="text-add" data-id="12" data-name="Produs 12" data-price="120">Adauga în cos</a>
         </div>
 </div>
 
@@ -301,14 +301,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/spc.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Spathiphyllum Bingo Cupido<br><br>Spathiphyllum Bingo Cupido este o plantă cu frunze verzi lucioase și flori albe delicate.<br>170 MDL</p>
+            <p class="text-carte">Spathiphyllum Bingo Cupido<br><br>Spathiphyllum Bingo Cupido este o plantă cu frunze verzi lucioase și flori albe delicate.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="13">Adauga în cos</a>
+                <a class="text-add" data-id="13" data-name="Produs 13" data-price="130">Adauga în cos</a>
          </div>
 </div>
 
@@ -317,14 +317,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/zx.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Zantedeschia mix <br><br>Zantedeschia mix este un amestec de crini cu flori colorate.<br>170 MDL</p>
+            <p class="text-carte">Zantedeschia mix <br><br>Zantedeschia mix este un amestec de crini cu flori colorate.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="14">Adauga în cos</a>
+                <a class="text-add" data-id="14" data-name="Produs 14" data-price="140">Adauga în cos</a>
         </div>
 </div>
 
@@ -333,14 +333,14 @@
         <!-- Front Card -->
         <div class="flori-carte front">
             <img src="poze/lox.png" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Lilium Or mix <br><br>Lilium Or mix este un amestec de crini cu flori mari și parfumate, de diverse culori.<br>170 MDL</p>
+            <p class="text-carte">Lilium Or mix <br><br>Lilium Or mix este un amestec de crini cu flori mari și parfumate, de diverse culori.<br><br>170 MDL</p>
 
         </div>
 
         <!-- Back Card -->
         <div class="flori-carte back">
             <a href="pagini/informatie.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="15">Adauga în cos</a>
+                <a class="text-add" data-id="15" data-name="Produs 15" data-price="150">Adauga în cos</a>
         </div>
 </div>
 
@@ -349,7 +349,7 @@
     <div class="card-container15">
         <div class="flori-carte front">
             <img src="poze/poza2.webp" alt="Trandafir" class="img-carte">
-            <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br>170 MDL</p>
+            <p class="text-carte">Maranta leuconeura<br><br>Detalii produs...<br>*******************<br>*******************<br><br>170 MDL</p>
 
         </div>
 
@@ -370,17 +370,17 @@
 
     <div class="image-overlay-2">
         <h1 class="overlay-text">BALOANE CU HELIU</h1>
-        <p class="overlay-text2">Noi avem .....</p>
+        <p class="overlay-text2">La Florăria Noastră, găsești nu doar cele mai frumoase flori, ci și baloane cu heliu pentru orice ocazie!<br>  Dacă îți faci griji că baloanele ar putea zbura, avem și opțiunea de a le umple cu apă la bază,<br> astfel încât să rămână pe loc, perfecte pentru decoruri speciale.</p>
     </div>
 
     <div class="image-overlay-3">
         <h1 class="overlay-text">HARTIE DECORATIVA</h1>
-        <p class="overlay-text2">Noi avem .....</p>
+        <p class="overlay-text2">La Florăria Noastră, pe lângă flori superbe și baloane cu heliu, îți oferim și hârtie decorativă de cea mai bună calitate!<br>  Perfectă pentru ambalaje elegante, buchete de flori sau cadouri speciale, <br>hârtia noastră decorativă adaugă un plus de rafinament fiecărui moment.</p>
     </div>
     
     <div class="image-overlay-4">
         <h1 class="overlay-text">JUCARII DE PLUS</h1>
-        <p class="overlay-text2">Noi avem .....</p>
+        <p class="overlay-text2">Florăria noastră nu oferă doar flori superbe și aranjamente elegante, ci și o selecție specială de jucării de pluș!<br> Fie că vrei să adaugi un plus de căldură unui buchet sau să surprinzi pe cineva drag cu un cadou adorabil, <br>vei găsi la noi cele mai frumoase jucării de pluș, perfecte pentru orice ocazie. Te așteptăm cu drag să descoperi colecția noastră! </p>
     </div>
 
 </div>

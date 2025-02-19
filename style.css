@@ -17,38 +17,37 @@ body{
 }
 
 .head-text{
-    margin-left:6%;
-    margin-top:40px;
     font-size:40px;
-    display:inline-block;
+    position:absolute;
+    width:200px;
 }
 
 .head-text2{
-	margin-left:10%;
+	margin-left:15%;
 	font-size:20px;
     position:absolute;
     margin-top:50px;
 }
 
 .head-text3{
-	margin-left:20%;
+	margin-left:25%;
 	font-size:20px;
     position:absolute;
     margin-top:50px;
 }
 
 .head-text4{
-	margin-left:30%;
+	margin-left:35%;
 	font-size:20px;
     position:absolute;
     margin-top:50px;
 }
 
 .head-text5{
-	margin-left:50%;
+	margin-left:45%;
 	font-size:20px;
     position:absolute;
-    margin-top:-37px;
+    margin-top:30px;
 }
 
 .head-text6{
@@ -84,14 +83,14 @@ body{
 }
 
 .img-carte {
-    width: 250px;
-    height: 170px;
+    width: 230px;
+    height: 150px;
     border-radius: 10px;
 }
 
 .text-carte {
     color: rgb(60, 100, 30);
-    font-size: 23px;
+    font-size: 22px;
     text-align: center;
 }
 
@@ -212,6 +211,8 @@ h1#logo {
     background-color:rgb(65, 106, 33);
     border: none;
     border-radius:3px;
+    position: absolute;
+    margin-top: 90px;
 }
 
 .contacte{
@@ -219,7 +220,8 @@ h1#logo {
     width:100%;
     height:60px;
     border-radius: 0px 0px 5px 5px;
-    margin-top:-160px;
+    margin-top:-70px;
+    position: absolute;
 }
 
 .linie2{
@@ -678,7 +680,7 @@ h1#logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('poze/magazin2.jpg');
+    background-image: url('poze/magazin2.png');
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -692,7 +694,7 @@ h1#logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('poze/baloon.jpg');
+    background-image: url('poze/baloon.png');
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -706,7 +708,7 @@ h1#logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('poze/magazin2.jpg');
+    background-image: url('poze/hartie.png');
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -720,7 +722,7 @@ h1#logo {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('poze/magazin2.jpg');
+    background-image: url('poze/jucarii.png');
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -744,7 +746,7 @@ h1#logo {
 }
 
 .overlay-text2 {
-    margin-left: -1000px;
+    margin-left: 100px;
     margin-top: -300px;
     color: white;
     font-size: 30px;
