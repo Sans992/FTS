@@ -733,24 +733,31 @@ h1#logo {
     color: white;
     font-size: 100px;
     text-align: top;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: -3px -3px 5px white,
     z-index: 1;
 }
 
 .overlay-text {
     margin-top: -600px;
-    color: white;
+    color: #000000;
     font-size: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: -4px -4px 6px white, 
+    4px -4px 6px white,
+    -4px 4px 6px white,
+    4px 4px 6px white,
+    0px 0px 8px white;
     z-index: 1;
 }
 
 .overlay-text2 {
     margin-left: 100px;
     margin-top: -300px;
-    color: white;
+    color: #000000;
     font-size: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: -3px -3px 5px white,  /* Umbre albe în toate direcțiile */
+    3px -3px 5px white,
+    -3px 3px 5px white,
+    3px 3px 5px white;
     z-index: 1;
     position:absolute
 }
