@@ -17,9 +17,16 @@ body{
 }
 
 .head-text{
-    font-size:40px;
     position:absolute;
-    width:200px;
+    width:400px;
+    margin-top:-60px;
+    margin-left:-70px ;
+}
+
+.logo{
+    position:absolute;
+    width:400px;
+    margin-top:50px;
 }
 
 .head-text2{
@@ -733,8 +740,8 @@ h1#logo {
     color: white;
     font-size: 100px;
     text-align: top;
-    text-shadow: -3px -3px 5px white,
-    z-index: 1;
+    text-shadow: -3px -3px 5px white;
+    z-index:1;
 }
 
 .overlay-text {
