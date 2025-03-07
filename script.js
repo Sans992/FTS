@@ -71,7 +71,6 @@ function addToCart(productId, productName, productPrice, productImage) {
 }
 
 function updateCartUI() {
-    // Actualizează numărul de produse din coș
     cartCountElement.textContent = cart.length;
 
     // Actualizează lista de produse din coș
@@ -94,11 +93,9 @@ function updateCartUI() {
         cartItemsElement.appendChild(cartItem);
     });
 
-    // Actualizează totalul coșului
     const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
     cartTotalElement.textContent = total.toFixed(2);
 
-    // Adaugă evenimente pentru butoanele de modificare a cantității
     const decreaseButtons = document.querySelectorAll('.decrease-quantity');
     const increaseButtons = document.querySelectorAll('.increase-quantity');
 
@@ -133,17 +130,14 @@ function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Gestionarea închiderii coșului
 closeCartButton.addEventListener('click', () => {
     cartModal.style.display = 'none';
 });
 
-// Gestionarea deschiderii coșului
 document.getElementById('cartButton').addEventListener('click', () => {
     cartModal.style.display = 'block';
 });
 
-// Gestionarea finalizării comenzii
 checkoutButton.addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Coșul este gol!');
@@ -156,7 +150,6 @@ checkoutButton.addEventListener('click', () => {
     }
 });
 
-// Încarcă coșul din localStorage la încărcarea paginii
 updateCartUI();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -168,12 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Deschide/închide meniul la click
     hamburgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('active');
     });
 
-    // Închide meniul dacă utilizatorul dă click în afara lui
     document.addEventListener('click', (event) => {
         if (!mobileNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
             mobileNav.classList.remove('active');
@@ -190,12 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Deschide/închide meniul la click
     hamburgerMenu.addEventListener('click', () => {
         mobileNav.classList.toggle('active');
     });
 
-    // Închide meniul dacă utilizatorul dă click în afara lui
     document.addEventListener('click', (event) => {
         if (!mobileNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
             mobileNav.classList.remove('active');
@@ -249,30 +238,25 @@ document.addEventListener('scroll', () => {
     const animationDistance = 1500;
     const delayDistance = 1500; 
     
-    // Calculate trigger heights for each animation
     const triggerHeight2 = triggerHeight + animationDistance + delayDistance;
     const triggerHeight3 = triggerHeight2 + animationDistance + delayDistance;
     const triggerHeight4 = triggerHeight3 + animationDistance + delayDistance;
 
     if (scrollPosition >= triggerHeight) {
-        // First overlay animation (left to right)
         const firstAnimationProgress = Math.min((scrollPosition - triggerHeight) / animationDistance, 1);
         targetTranslate = -100 + (firstAnimationProgress * 100);
         targetTranslate = Math.min(targetTranslate, 0);
 
-        // Second overlay animation (right to left)
         if (scrollPosition >= triggerHeight2) {
             const secondAnimationProgress = Math.min((scrollPosition - triggerHeight2) / animationDistance, 1);
             targetTranslate2 = 100 - (secondAnimationProgress * 100);
             targetTranslate2 = Math.max(targetTranslate2, 0);
 
-            // Third overlay animation (left to right)
             if (scrollPosition >= triggerHeight3) {
                 const thirdAnimationProgress = Math.min((scrollPosition - triggerHeight3) / animationDistance, 1);
                 targetTranslate3 = -100 + (thirdAnimationProgress * 100);
                 targetTranslate3 = Math.min(targetTranslate3, 0);
 
-                // Fourth overlay animation (right to left)
                 if (scrollPosition >= triggerHeight4) {
                     const fourthAnimationProgress = Math.min((scrollPosition - triggerHeight4) / animationDistance, 1);
                     targetTranslate4 = 100 - (fourthAnimationProgress * 100);

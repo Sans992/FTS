@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body{
@@ -7,80 +9,154 @@ body{
 	font-weight: 600;
 	font-style: normal;
     color:rgb(65, 106, 33);
-    padding: 0; 
     flex-direction: column;
     align-items: center; 
     flex-wrap: wrap;
     overflow-x: hidden;
     margin-left: 5%;
     margin-right: 5%;
+}  
+
+a {
+    color: green;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.head-text{
-    position:absolute;
-    width:400px;
-    margin-top:-60px;
-    margin-left:-70px ;
+a:hover {
+    text-decoration: underline;
+    transition: transform 0.5s;
 }
 
-.logo{
-    position:absolute;
-    width:400px;
-    margin-top:50px;
+.load-logo{
+    width: 15rem;
 }
 
-.head-text2{
-	margin-left:15%;
-	font-size:20px;
-    position:absolute;
-    margin-top:50px;
+.contacte{
+    background-color:rgba(65, 106, 33, 0.5);
+    width:100%;
+    height:3.5rem;
+    border-radius: 0px 0px 5px 5px;
 }
 
-.head-text3{
-	margin-left:25%;
-	font-size:20px;
-    position:absolute;
-    margin-top:50px;
+.contacte p{
+    font-size: 1rem;
+    padding: 3px 1rem;
+    color:white;
 }
 
-.head-text4{
-	margin-left:35%;
-	font-size:20px;
-    position:absolute;
-    margin-top:50px;
+.header-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:1;
+    column-gap:1rem;
+    align-items: center;
+    margin-top: 1rem;
 }
 
-.head-text5{
-	margin-left:45%;
-	font-size:20px;
-    position:absolute;
-    margin-top:30px;
+.header-logo{
+    display:flex;
+    grid-column: 1;
+    width: 20rem;
+    margin-left: 2rem;
 }
 
-.head-text6{
-	margin-left:10%;
-	font-size:20px;
+.header-item1{
+    display:flex;
+    grid-column:2;
+    justify-self: center;
 }
 
-.card-container, .card-container1, .card-container2, .card-container3, .card-container4, .card-container5, .card-container6, .card-container7, .card-container8, .card-container9, .card-container10, .card-container11, .card-container12, .card-container13, .card-container14, .card-container15 {
+.header-item2{
+    display:flex;
+    grid-column:3;
+    justify-self: center;
+}
+
+.header-item3{
+    display:flex;
+    grid-column:4;
+    justify-self: center;
+}
+
+.linie{
+    width:100%;
+    height:2px;
+    background-color:rgb(65, 106, 33);
+    border: none;
+}
+
+.section-grid{
+    display:grid;
+    grid-template-columns: 2;
+    grid-template-rows:2;
+    justify-content: center;
+    align-content: center;
+    gap:1rem;
+    margin-top: 5rem;
+}
+
+.section-item1 {
+    display: flex;
+    grid-column: 1;
+    grid-row:1;
+    justify-self: center;
+    flex-direction:column;
+}
+
+.section-item1-text1{
+    font-size: 6rem;
+    padding: 2rem 0rem ;
+}
+
+.section-item1-text2{
+    font-size: 4rem;
+    row-gap: 1rem;
+    text-align: center;
+}
+
+.section-item2{ 
+    display: flex;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    border-radius:30px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.section-item3{
+    display: flex;
+    grid-column:1;
+    grid-row: 2;
+    border-radius:30px;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.linie2{
+    width:100%;
+    height:3px;
+    background-color:rgb(65, 106, 33);
+    border: none;
+}
+
+.card-container{
     position: relative;
     width: 300px;
     height: 400px;
     flex-wrap: wrap; 
 }
 
-
 .flori-carte {
     position: absolute;
+    display: flex;
     width: 100%;
     height: 100%;
     border: 3px solid rgb(65, 106, 33);
     background: white;
     color: rgb(255, 255, 255);
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     border-radius: 20px;
     box-shadow: 0 0 0 3px white,
         0 0 0 6px rgb(65, 106, 33),
@@ -90,15 +166,56 @@ body{
 }
 
 .img-carte {
-    width: 230px;
-    height: 150px;
-    border-radius: 10px;
+    width: 100%;
+    height:50%;
+    border-radius:2rem;
+    align-self:top;
+    padding:1rem;
 }
 
-.text-carte {
+.text-carte1 {
     color: rgb(60, 100, 30);
-    font-size: 22px;
+    font-size: 25px;
     text-align: center;
+    padding:10px;
+}
+
+.text-carte2 {
+    color: rgb(60, 100, 30);
+    font-size: 21px;
+    text-align: center;
+    padding:10px;
+}
+
+.text-carte3 {
+    color: rgb(60, 100, 30);
+    font-size: 26px;
+    text-align: center;
+    padding:10px;
+}
+
+.text-linie{
+    background-color:rgb(60, 100, 30) ;
+    width:70%;
+    height:3px;
+}
+
+.text-informatie{
+    position:absolute;
+    right: 0;
+    top: 0;
+    padding:5rem 0rem;
+    transform: rotate(76deg);
+    color:white;
+}
+
+.text-add{
+    position:absolute;
+    right:0;
+    bottom: 0;
+    padding: 1rem;
+    cursor: pointer;
+    color:white;
 }
 
 .flori-carte.front {
@@ -113,11 +230,11 @@ body{
     justify-content: center;
 }
 
-.card-container:hover .front, .card-container1:hover .front, .card-container2:hover .front, .card-container3:hover .front, .card-container4:hover .front, .card-container5:hover .front, .card-container6:hover .front, .card-container7:hover .front, .card-container8:hover .front, .card-container9:hover .front, .card-container10:hover .front, .card-container11:hover .front, .card-container12:hover .front, .card-container13:hover .front, .card-container14:hover .front, .card-container15:hover .front {
+.card-container:hover .front{
     transform: rotate(-15deg) translate(-50px, -50px);
 }
 
-.card-container:hover .back, .card-container1:hover .back, .card-container2:hover .back, .card-container3:hover .back, .card-container4:hover .back, .card-container5:hover .back, .card-container6:hover .back, .card-container7:hover .back, .card-container8:hover .back, .card-container9:hover .back, .card-container10:hover .back, .card-container11:hover .back, .card-container12:hover .back, .card-container13:hover .back, .card-container14:hover .back, .card-container15:hover .back {
+.card-container:hover .back{
     transform: none;
 }
 
@@ -144,7 +261,6 @@ h1#logo {
     transform: translateY(50px); 
     animation: logo-animation 2.5s ease-out forwards; 
 }
-
 
 #loading-line {
     position:absolute;
@@ -187,63 +303,11 @@ h1#logo {
   }
 }
 
-.introducere-text{
-    margin-left:250px;
-    margin-top:250px;
-    font-size: 70px;
-    text-align:center;
-    display: flex;
-
-}
-
-.introducere-poza{
-    border-radius:30px;
-    margin-top:-450px;
-    margin-left:900px;
-    display: flex;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
-}
-
-.introducere-poza2{
-    border-radius:30px;
-    display: flex;
-    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.3);
-    margin-top:-560px;
-    margin-left:10px;
-}
-
-.linie{
-    width:100%;
-    height:2px;
-    background-color:rgb(65, 106, 33);
-    border: none;
-    border-radius:3px;
-    position: absolute;
-    margin-top: 90px;
-}
-
-.contacte{
-    background-color:rgba(65, 106, 33, 0.5);
-    width:100%;
-    height:60px;
-    border-radius: 0px 0px 5px 5px;
-    margin-top:-70px;
-    position: absolute;
-}
-
-.linie2{
-    margin-left: -1px;
-    width:1600px;
-    height:3px;
-    background-color:rgb(65, 106, 33);
-    border: none;
-    border-radius:3px;
-}
-
 .flori-name{
     color:rgb(65, 106, 33);
     font-size:50px;
     margin-top:150px;
+    text-align: center;
 }
 
 .linie3{
@@ -261,7 +325,6 @@ h1#logo {
     font-size:50px;
     margin-top:150px;
 }
-
 
 .container-scroll {
     margin-left:-1300px;
@@ -335,19 +398,6 @@ h1#logo {
     letter-spacing: 0.1em;
 }
 
-.text-informatie{
-    margin-left:210px;
-    margin-top:50px;
-    transform: rotate(76deg);
-    color:white;
-}
-
-.text-add{
-    margin-left:160px;
-    margin-top:280px;
-    cursor: pointer;
-    color:white;
-}
 
 
 .container {
@@ -592,11 +642,10 @@ h1#logo {
     background-color: black;
 }
 
-/* Meniul mobil static pe dreapta */
 .mobile-nav {
-    position: absolute; /* Static, nu urmărește utilizatorul */
+    position: absolute; 
     top: 0;
-    right: -250px; /* Inițial ascuns în afara ecranului */
+    right: -250px; 
     width: 250px;
     height: 5000px;
     background: white;
@@ -605,18 +654,16 @@ h1#logo {
     z-index: 1000;
 }
 
-/* Când meniul este activ, îl aducem pe ecran */
 .mobile-nav.active {
     right: 0;
 }
 
-/* Buton hamburger - doar 3 linii verzi fără fundal */
 .hamburger-menu {
     display: none;
     cursor: pointer;
     position: absolute; 
     top: 80px;
-    right: 60px; /* În partea dreaptă */
+    right: 60px; 
     z-index: 1001;
     
 }
@@ -631,7 +678,6 @@ h1#logo {
     top:1px;
 }
 
-/* Stilizare text meniu */
 .mobile-link {
     font-size: 30px;
     margin: 20px;
@@ -761,7 +807,7 @@ h1#logo {
     margin-top: -300px;
     color: #000000;
     font-size: 30px;
-    text-shadow: -3px -3px 5px white,  /* Umbre albe în toate direcțiile */
+    text-shadow: -3px -3px 5px white,  
     3px -3px 5px white,
     -3px 3px 5px white,
     3px 3px 5px white;
@@ -769,384 +815,20 @@ h1#logo {
     position:absolute
 }
 
-/* Responsivitate: Arată butonul pe mobil */
 @media screen and (max-width: 1000px) {
     .hamburger-menu {
         display: block;
     }
 
-    .head-text2, .head-text3, .head-text4, .head-text5 {
+    .header-item1, .header-item2, .header-item3 {
         display: none;
     }
-    .introducere-poza{
+
+    .header-logo{
+        width:15rem;
+    }
+    .section-item2{
         display:none;
     }
-    .introducere-poza2{
-        margin-top: 100px;
-    }
 }
 
-@media screen and (max-width: 900px) {
-    .introducere-poza2{
-        width:100%;
-    }
-    
-    .introducere-text{
-        margin-left: 20%;
-    }
-
-    .card-container, .card-container4, .card-container8, .card-container12{
-        width:250px;
-        height:350px;
-        margin-left:70px;
-        margin-top:-30px;
-    } 
-
-    .card-container1, .card-container5, .card-container9, .card-container13{
-        width:250px;
-        height:350px;
-        margin-left:5px;
-        margin-top:50px;
-    } 
-
-    .card-container2, .card-container6, .card-container10, .card-container14{
-        width:250px;
-        height:350px;
-        margin-left:-790px;
-        margin-top:480px;
-    } 
-
-    .card-container3, .card-container7, .card-container11, .card-container15{
-        width:250px;
-        height:350px;
-        margin-left:-855px;
-        margin-top:50px;
-    } 
-
-    .text-carte{
-        font-size:19px;
-    }
-
-    .img-carte{
-        width:210px;
-    }
-
-    .text-add{
-        margin-left:110px;
-        margin-top:230px;
-        font-size:18px;
-    }
-
-    .text-informatie{
-        margin-left:155px;
-        margin-top:50px;
-        font-size:18px;
-    }
-
-}
-
-@media screen and (min-width: 900px) and (max-width: 1300px) {
-    .card-container{
-        width:250px;
-        height:350px;
-        margin-left:70px;
-        margin-top:-30px;
-    } 
-
-    .card-container1{
-        width:250px;
-        height:350px;
-        margin-left:5px;
-        margin-top:50px;
-    } 
-
-    .card-container2{
-        width:250px;
-        height:350px;
-        margin-left:-50px;
-        margin-top:50px;
-    } 
-
-    .card-container3{
-        width:250px;
-        height:350px;
-        margin-left:-480px;
-        margin-top:500px;
-    } 
-
-    .card-container4{
-        width:250px;
-        height:350px;
-        margin-left:70px;
-        margin-top:-450px;
-    } 
-
-    .card-container5{
-        width:250px;
-        height:350px;
-        margin-left:5px;
-        margin-top:50px;
-    } 
-
-    .card-container6{
-        width:250px;
-        height:350px;
-        margin-left:-790px;
-        margin-top:480px;
-    } 
-
-    .card-container7{
-        width:250px;
-        height:350px;
-        margin-left:-855px;
-        margin-top:50px;
-    } 
-
-    .card-container8{
-        width:250px;
-        height:350px;
-        margin-left:70px;
-        margin-top:-30px;
-    } 
-
-    .card-container9{
-        width:250px;
-        height:350px;
-        margin-left:5px;
-        margin-top:50px;
-    } 
-
-    .card-container10{
-        width:250px;
-        height:350px;
-        margin-left:-790px;
-        margin-top:480px;
-    } 
-
-    .card-container11{
-        width:250px;
-        height:350px;
-        margin-left:-500px;
-        margin-top:-770px;
-    } 
-
-    .seminte-name{
-        margin-top:500px;
-    }
-
-    .card-container12{
-        width:250px;
-        height:350px;
-        margin-left:70px;
-        margin-top:-20px;
-    } 
-
-    .card-container13{
-        width:250px;
-        height:350px;
-        margin-left:5px;
-        margin-top:50px;
-    } 
-
-    .card-container14{
-        width:250px;
-        height:350px;
-        margin-left:-790px;
-        margin-top:480px;
-    } 
-
-    .card-container15{
-        width:250px;
-        height:350px;
-        margin-left:-490px;
-        margin-top:-775px;
-    } 
-
-    .text-carte{
-        font-size:19px;
-    }
-
-    .img-carte{
-        width:210px;
-    }
-
-    .text-add{
-        margin-left:110px;
-        margin-top:230px;
-        font-size:18px;
-    }
-
-    .text-informatie{
-        margin-left:155px;
-        margin-top:50px;
-        font-size:18px;
-    }
-
-
-    
-    .introducere-poza2{
-        width:55%;
-        margin-top:-25%;
-    }
-    
-    .introducere-poza{
-        width:40%;
-        margin-left:60%;
-    }
-
-    .introducere-text{
-        margin-left: 14%;
-        font-size: 60px;
-    }
-
-}
-
-@media screen and (max-width: 1000px) {
-    .introducere-poza2{
-        width:100%;
-        margin-top:10%;
-    }
-
-    .introducere-text{
-        margin-left: 20%;
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width: 1100px) and (min-width: 900px) {
-    .card-container, .card-container1, .card-container2, .card-container3, .card-container4, .card-container5, .card-container6, .card-container7, .card-container8, .card-container9, .card-container10, .card-container11, .card-container12, .card-container13, .card-container14, .card-container15 {
-        width: 210px;
-        height: 300px;
-    }
-
-    .card-container{
-        margin-left:50px;
-        margin-top:-30px;
-    } 
-
-    .card-container1{
-        margin-left:-70px;
-        margin-top:100px;
-    } 
-
-    .card-container2{
-        margin-left: -190px;
-        margin-top:100px;
-    } 
-
-    .card-container3{
-        margin-left:-620px;
-        margin-top:470px;
-    } 
-
-    .card-container4{
-        margin-left:50px;
-        margin-top:-400px;
-    } 
-
-    .card-container5{
-        margin-left: -70px;
-        margin-top:100px;
-    } 
-
-    .card-container6{
-        margin-left:-810px;
-        margin-top:470px;
-    } 
-
-    .card-container7{
-        margin-left:-930px;
-        margin-top:100px;
-    } 
-
-    .card-container8{
-        margin-left:50px;
-        margin-top:-30px;
-    } 
-
-    .card-container9{
-        margin-left:-70px;
-        margin-top:100px;
-    } 
-
-    .card-container10{
-        margin-left:-810px;
-        margin-top:470px;
-    } 
-
-    .card-container11{
-        margin-left:-610px;
-        margin-top:-680px;
-    } 
-
-    .seminte-name{
-        margin-top:500px;
-    }
-
-    .card-container12{
-        margin-left:45px;
-        margin-top:-20px;
-    } 
-
-    .card-container13{
-        margin-left:-70px;
-        margin-top:100px;
-    } 
-
-    .card-container14{
-        margin-left:-810px;
-        margin-top:480px;
-    } 
-
-    .card-container15{
-        margin-left:-610px;
-        margin-top:-680px;
-    } 
-
-    .text-carte{
-        font-size:17px;
-    }
-
-    .img-carte{
-        width:170px;
-    }
-
-    .text-add{
-        margin-left:100px;
-        margin-top:190px;
-        font-size:16px;
-    }
-
-    .text-informatie{
-        margin-left:135px;
-        margin-top:50px;
-        font-size:18px;
-    }
-}
-
-
-.face{
-	transition: all 1s ease;
-}
-
-.face:hover{
-	content: url('image/facebookcu.png')
-}
-
-a {
-    color: green;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-a:hover {
-    text-decoration: underline;
-    transition: transform 0.5s;
-
-}
-
-.infoflori{
-    text-align: center;
-    font-size: 70px;
-    margin-top: 200px;
-}
