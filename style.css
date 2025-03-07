@@ -43,6 +43,7 @@ a:hover {
     font-size: 1rem;
     padding: 3px 1rem;
     color:white;
+    justify-self: center;
 }
 
 .header-grid{
@@ -51,7 +52,9 @@ a:hover {
     grid-template-rows:1;
     column-gap:1rem;
     align-items: center;
+    justify-self: center;
     margin-top: 1rem;
+    max-width: 1500px;
 }
 
 .header-logo{
@@ -147,6 +150,18 @@ a:hover {
     flex-wrap: wrap; 
 }
 
+.main-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    row-gap: 5rem;
+    column-gap: 8rem;
+    margin-top: 5rem;
+    align-items: center;
+    max-width: 1800px;
+    justify-self: center;
+}
+
 .flori-carte {
     position: absolute;
     display: flex;
@@ -219,7 +234,7 @@ a:hover {
 }
 
 .flori-carte.front {
-     z-index: 2;
+    z-index: 2;
 }
 
 .flori-carte.back {
@@ -305,25 +320,9 @@ h1#logo {
 
 .flori-name{
     color:rgb(65, 106, 33);
-    font-size:50px;
+    font-size:5rem;
     margin-top:150px;
     text-align: center;
-}
-
-.linie3{
-    margin-left: -1300px;
-    width:1600px;
-    height:3px;
-    background-color:rgb(65, 106, 33);
-    border: none;
-    border-radius:3px;
-}
-
-.ingrasaminte-name, .seminte-name{
-    margin-left: -1300px;
-    color:rgb(65, 106, 33);
-    font-size:50px;
-    margin-top:150px;
 }
 
 .container-scroll {
@@ -339,6 +338,7 @@ h1#logo {
     height: 100vh;
     overflow: hidden; 
 }
+
 .container-animatie.vizibil {
     opacity: 1;
     visibility: visible;
@@ -397,8 +397,6 @@ h1#logo {
     margin-top: 1rem;
     letter-spacing: 0.1em;
 }
-
-
 
 .container {
     max-width: 1200px;
@@ -466,6 +464,7 @@ h1#logo {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 999;
 }
 
 .cart-count {
@@ -643,19 +642,24 @@ h1#logo {
 }
 
 .mobile-nav {
-    position: absolute; 
+    display: none;
+    position: absolute;
     top: 0;
-    right: -250px; 
-    width: 250px;
-    height: 5000px;
-    background: white;
-    padding-top: 60px;
-    transition: right 0.3s ease-in-out;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
+.mobile-link {
+    font-size: 30px;
+    cursor: pointer;
+    padding:3rem;
+}
+
 .mobile-nav.active {
-    right: 0;
+    display: block;
 }
 
 .hamburger-menu {
@@ -678,12 +682,7 @@ h1#logo {
     top:1px;
 }
 
-.mobile-link {
-    font-size: 30px;
-    margin: 20px;
-    cursor: pointer;
-    margin-left:50px;
-}
+
 
 .scroll-container {
     position: fixed;
@@ -832,3 +831,23 @@ h1#logo {
     }
 }
 
+@media screen and (max-width: 1700px){
+    .main-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 1200px){
+    .main-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .main-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

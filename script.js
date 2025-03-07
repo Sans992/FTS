@@ -152,40 +152,15 @@ checkoutButton.addEventListener('click', () => {
 
 updateCartUI();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const mobileNav = document.getElementById('mobileNav');
 
-    if (!hamburgerMenu || !mobileNav) {
-        console.error("Elementele meniului nu au fost găsite!");
-        return;
-    }
-
-    hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.addEventListener('click', function() {
         mobileNav.classList.toggle('active');
     });
 
-    document.addEventListener('click', (event) => {
-        if (!mobileNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-            mobileNav.classList.remove('active');
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const mobileNav = document.getElementById('mobileNav');
-
-    if (!hamburgerMenu || !mobileNav) {
-        console.error("Elementele meniului nu au fost găsite!");
-        return;
-    }
-
-    hamburgerMenu.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', function(event) {
         if (!mobileNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
             mobileNav.classList.remove('active');
         }
