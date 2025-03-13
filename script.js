@@ -119,33 +119,33 @@ checkoutButton.addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Coșul este gol!');
     } else {
-        alert('Comanda a fost finalizată!');
-        cart = [];
-        updateCartUI();
-        saveCart();
-        cartModal.style.display = 'none';
+
+        window.location.href = "pagini/cos.html";
     }
 });
 
 updateCartUI();
 
 //meniu mobil
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const overlay = document.getElementById("overlay");
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('overlay');
 
-    function toggleMenu() {
-        mobileMenu.classList.toggle("open");
-        overlay.classList.toggle("active");
-    }
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.add('open');
+        overlay.classList.add('active');
+    });
 
-    menuToggle.addEventListener("click", toggleMenu);
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('active');
+    });
 
-    overlay.addEventListener("click", toggleMenu);
-
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-        link.addEventListener("click", toggleMenu);
+    overlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('active');
     });
 });
 
@@ -162,25 +162,78 @@ setTimeout(() => {
 }, 10000);
 
 //animatie end page
-const slides = document.querySelectorAll('.slide');
-const contents = document.querySelectorAll('.slide-content');
-const triggers = document.querySelectorAll('.trigger');
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const triggers = document.querySelectorAll('.trigger');
+    let visibleSlides = new Set();
 
-triggers.forEach((trigger, index) => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          slides[index].classList.add('visible');
-          contents[index].classList.add('visible');
-        } else {
-          slides[index].classList.remove('visible');
-          contents[index].classList.remove('visible');
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const index = parseInt(entry.target.dataset.index);
+            
+            if (entry.isIntersecting) {
 
-  observer.observe(trigger);
+                setTimeout(() => {
+                    visibleSlides.add(index);
+                    updateSlides();
+                }, 50);
+            } else {
+                const maxVisible = Math.max(...visibleSlides);
+                if (index === maxVisible) {
+                    setTimeout(() => {
+                        visibleSlides.delete(index);
+                        updateSlides();
+                    }, 50);
+                }
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '-10% 0px -10% 0px' 
+    });
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            if (visibleSlides.has(index)) {
+                slide.classList.add('visible');
+                slide.style.zIndex = 10 + index;
+            } else {
+                slide.classList.remove('visible');
+
+                setTimeout(() => {
+                    if (!slide.classList.contains('visible')) {
+                        slide.style.zIndex = 0;
+                    }
+                }, 1500);
+            }
+        });
+    }
+
+    triggers.forEach(trigger => observer.observe(trigger));
 });
+
+let sortAscending = false;
+
+function sortFlowers() {
+    const mainGrid = document.querySelector('.main-grid');
+    const cardContainers = Array.from(mainGrid.querySelectorAll('.card-container'));
+
+    cardContainers.sort((a, b) => {
+        const priceA = parseFloat(a.querySelector('.text-carte3').textContent);
+        const priceB = parseFloat(b.querySelector('.text-carte3').textContent);
+
+        return sortAscending ? priceA - priceB : priceB - priceA;
+    });
+
+    cardContainers.forEach(container => mainGrid.appendChild(container));
+
+    sortAscending = !sortAscending;
+    const sortIcon = document.getElementById('sortIcon');
+    sortIcon.src = sortAscending ? 'poze/sortup.png' : 'poze/sortdown.png';
+    sortIcon.alt = sortAscending ? 'Sortare crescătoare' : 'Sortare descrescătoare';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('sortContainer').addEventListener('click', sortFlowers);
+});
+

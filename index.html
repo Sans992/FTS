@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="poze/title.png">
 </head>
 <body >
 
@@ -14,13 +15,13 @@
     <div id="loading-line"></div>
     </div>
 
-<div id="main-content">
+<div id="main-content triggers">
 
 <header>
-
     <div class="overlay" id="overlay"></div> 
 
     <nav class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">✕</button>
         <ul>
             <li><a href="#produs" class="mobile-link">Produse</a></li>
             <li><a href="#decor" class="mobile-link">Decoratii</a></li>
@@ -71,8 +72,12 @@
 <main>
     <!--linie de delimitare-->
     <div id="produs">
-        <h1 class="flori-name">Flori</h1>
-        <hr class="linie2">
+            <h1 class="flori-name">Flori</h1>
+        <div id="sortContainer" class="sort-container">
+            <span>Preț</span>
+            <img id="sortIcon" src="poze/sortdown.png" alt="Sortare descrescătoare" class="sort-icon">
+        </div>
+            <hr class="linie2">
     </div>
 
        <!--carti-->
@@ -90,7 +95,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="1">
                 <a href="pagini/semipagini/guzmania_hope.html" class="text-informatie">Informatie</a>
-                <a class="text-add hover-animation2" data-id="1" data-name="Produs 1" data-price="10">Adauga în cos</a>
+                <a class="text-add hover-animation2" data-id="1" data-name="Guzmania Hope" data-price="10" data-image="poze/gh.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -107,7 +112,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="2">
                 <a href="pagini/semipagini/anthurium.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="2" data-name="Produs 2" data-price="20">Adauga în cos</a>
+                <a class="text-add" data-id="2" data-name="Anthurium Lilli" data-price="20" data-image="poze/al.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -124,7 +129,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="3">
                 <a href="pagini/semipagini/lilium.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="3" data-name="Produs 3" data-price="30">Adauga în cos</a>
+                <a class="text-add" data-id="3" data-name="Lilium Or Releeze" data-price="30" data-image="poze/lor.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -141,7 +146,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="4">
                 <a href="pagini/semipagini/guzmania_torch.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="4" data-name="Produs 4" data-price="40">Adauga în cos</a>
+                <a class="text-add" data-id="4" data-name="Guzmania Torch" data-price="40" data-image="poze/gt.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -158,7 +163,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="5">
                 <a href="pagini/semipagini/phal.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="5" data-name="Produs 5" data-price="50">Adauga în cos</a>
+                <a class="text-add" data-id="5" data-name="Phal Wonder of Nature" data-price="50" data-image="poze/pwh.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -175,7 +180,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="6">
                 <a href="pagini/semipagini/crocus.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="6" data-name="Produs 6" data-price="60">Adauga în cos</a>
+                <a class="text-add" data-id="6" data-name="Crocus mix" data-price="60" data-image="poze/cm.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -192,7 +197,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="7">
                 <a href="pagini/semipagini/kalanchoe.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="7" data-name="Produs 7" data-price="70">Adauga în cos</a>
+                <a class="text-add" data-id="7" data-name="Kalanchoe double blossfeldiana" data-price="70" data-image="poze/kdl.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -209,7 +214,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="8">
                 <a href="pagini/semipagini/zamioculcas.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="8" data-name="Produs 8" data-price="80">Adauga în cos</a>
+                <a class="text-add" data-id="8" data-name="Zamioculcas zamiifolia" data-price="80" data-image="poze/zz.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -226,7 +231,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="9">
                 <a href="pagini/semipagini/stephanotis.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="9" data-name="Produs 9" data-price="90">Adauga în cos</a>
+                <a class="text-add" data-id="9" data-name="Stephanotis Floribunda" data-price="90" data-image="poze/sf.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -243,7 +248,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="10">
                 <a href="pagini/semipagini/tillandsia.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="10" data-name="Produs 10" data-price="100">Adauga în cos</a>
+                <a class="text-add" data-id="10" data-name="Tillandsia Cyanea Anita" data-price="100" data-image="poze/tca.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -260,7 +265,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="11">
                 <a href="pagini/semipagini/phal1.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="11" data-name="Produs 11" data-price="110">Adauga în cos</a>
+                <a class="text-add" data-id="11" data-name="Phalaenopsis Orchid" data-price="110" data-image="poze/po.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -277,7 +282,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="12">
                 <a href="pagini/semipagini/anthurium1.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="12" data-name="Produs 12" data-price="120">Adauga în cos</a>
+                <a class="text-add" data-id="12" data-name="Anthurium Floriclone Koro" data-price="120" data-image="poze/afk.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -294,7 +299,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="13">
                 <a href="pagini/semipagini/spathiphyllum.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="13" data-name="Produs 13" data-price="130">Adauga în cos</a>
+                <a class="text-add" data-id="13" data-name="Spathiphyllum Bingo Cupido" data-price="130" data-image="poze/spc.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -311,7 +316,7 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="14">
                 <a href="pagini/semipagini/zantedeschia.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="14" data-name="Produs 14" data-price="140">Adauga în cos</a>
+                <a class="text-add" data-id="14" data-name="Zantedeschia mix" data-price="140" data-image="poze/zx.png">Adauga în cos</a>
             </div>
         </div>
 
@@ -328,47 +333,46 @@
             <!-- Back Card -->
             <div class="flori-carte back" data-id="15">
                 <a href="pagini/semipagini/liliummix.html" class="text-informatie">Informatie</a>
-                <a class="text-add" data-id="15" data-name="Produs 15" data-price="150">Adauga în cos</a>
+                <a class="text-add" data-id="15" data-name="Lilium Or mix" data-price="150" data-image="poze/lox.png">Adauga în cos</a>
             </div>
         </div>
     </div>
 </main>
 </div>
 
-<!--animatie decoratii-->
-<div id="decor">
-    <div class="inter-container">
-        <div class="slide" id="slide1" style="background-image: url('poze/magazin2.png');"></div>
-        <div class="slide-content" id="content1">
-            <h2 class="slide-title">DECORATII PENTRU FLORI</h2>
+    <div class="slides">
+        <div class="slide" data-index="0">
+            <div class="slide-content">
+                <h2>DECORATII PENTRU FLORI</h2>
+            </div>
         </div>
-
-        <div class="slide" id="slide2" style="background-image: url('poze/baloon.png');"></div>
-        <div class="slide-content" id="content2">
-            <h2 class="slide-title">BALOANE CU HELIU</h2>
-            <p class="slide-description">La Florăria Noastră, găsești nu doar cele mai frumoase flori, ci și baloane cu heliu pentru orice ocazie! Dacă îți faci griji că baloanele ar putea zbura, avem și opțiunea de a le umple cu apă la bază, astfel încât să rămână pe loc, perfecte pentru decoruri speciale.</p>
+        <div class="slide" data-index="1">
+            <div class="slide-content">
+                <h2>BALOANE CU HELIU</h2>
+                <p>La Florăria Noastră, găsești nu doar cele mai frumoase flori, ci și baloane cu heliu pentru orice ocazie! Dacă îți faci griji că baloanele ar putea zbura, avem și opțiunea de a le umple cu apă la bază, astfel încât să rămână pe loc, perfecte pentru decoruri speciale.</p>
+            </div>
         </div>
-
-        <div class="slide" id="slide3" style="background-image: url('poze/hartie.png');"></div>
-        <div class="slide-content" id="content3">
-            <h2 class="slide-title">HARTIE DECORATIVA</h2>
-            <p class="slide-description">La Florăria Noastră, pe lângă flori superbe și baloane cu heliu, îți oferim și hârtie decorativă de cea mai bună calitate! Perfectă pentru ambalaje elegante, buchete de flori sau cadouri speciale, hârtia noastră decorativă adaugă un plus de rafinament fiecărui moment.</p>
+        <div class="slide" data-index="2">
+            <div class="slide-content">
+                <h2>HARTIE DECORATIVA</h2>
+                <p>La Florăria Noastră, pe lângă flori superbe și baloane cu heliu, îți oferim și hârtie decorativă de cea mai bună calitate! Perfectă pentru ambalaje elegante, buchete de flori sau cadouri speciale, hârtia noastră decorativă adaugă un plus de rafinament fiecărui moment.</p>
+            </div>
         </div>
-
-      <div class="slide" id="slide4" style="background-image: url('poze/jucarii.png');"></div>
-      <div class="slide-content" id="content4">
-            <h2 class="slide-title">JUCARII DE PLUS</h2>
-            <p class="slide-description">Florăria noastră nu oferă doar flori superbe și aranjamente elegante, ci și o selecție specială de jucării de pluș! Fie că vrei să adaugi un plus de căldură unui buchet sau să surprinzi pe cineva drag cu un cadou adorabil, vei găsi la noi cele mai frumoase jucării de pluș, perfecte pentru orice ocazie. Te așteptăm cu drag să descoperi colecția noastră! </p>
+        <div class="slide" data-index="3">
+            <div class="slide-content">
+                <h2>JUCARII DE PLUS</h2>
+                <p>Florăria noastră nu oferă doar flori superbe și aranjamente elegante, ci și o selecție specială de jucării de pluș! Fie că vrei să adaugi un plus de căldură unui buchet sau să surprinzi pe cineva drag cu un cadou adorabil, vei găsi la noi cele mai frumoase jucării de pluș, perfecte pentru orice ocazie. Te așteptăm cu drag să descoperi colecția noastră!</p>
+            </div>
         </div>
     </div>
 
-    <div id="triggers-container">
-        <div class="trigger"></div>
-        <div class="trigger"></div>
-        <div class="trigger"></div>
-        <div class="trigger"></div>
+    <div class="triggers" id="decor">
+        <div class="trigger" data-index="0"></div>
+        <div class="trigger" data-index="1"></div>
+        <div class="trigger" data-index="2"></div>
+        <div class="trigger" data-index="3"></div>
     </div>
-</div>
+
 
 <!--cos-->
 <div class="cart-modal" id="cartModal">
@@ -384,7 +388,7 @@
                 Total: <span id="cartTotal">0.00</span> Lei
             </div>
             <button class="checkout-button" id="checkoutButton">
-                Finalizează comanda
+                <a href="pagini/cos.html">Cosul</a>
             </button>
         </div>
     </div>
