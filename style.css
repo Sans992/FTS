@@ -441,7 +441,6 @@ a:hover {
 .add-to-cart {
     width: 100%;
     padding: 0.75rem;
-    background-color:rgb(65, 106, 33); ;
     color: white;
     border: none;
     border-radius: 4px;
@@ -485,7 +484,11 @@ a:hover {
     height: 100%;
     display: flex;
     flex-direction: column;
-    color:rgb(65, 106, 33);
+    color:#000;
+}
+
+.cart-content span{
+    color:#aa0132
 }
 
 .cart-header {
@@ -582,7 +585,7 @@ a:hover {
 .checkout-button {
     width: 100%;
     padding: 0.75rem;
-    background-color:rgb(82, 122, 51);
+    background-color:#aa0132;
     color: white;
     border: none;
     border-radius: 4px;
@@ -592,10 +595,11 @@ a:hover {
 
 .checkout-button a{
     color:white;
+    text-decoration: none;
 }
 
 .checkout-button:hover {
-    background-color: rgb(65, 106, 33);
+    background-color: #9e2044;
 }
 
 .flower-grid{
@@ -726,7 +730,7 @@ a:hover {
 
 .slide-content {
     position: absolute;
-    top: 15%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -830,6 +834,12 @@ a:hover {
 .contacte-list2 p{
     text-align: center;
 }
+
+.contacte-list span{
+    color:#aa0132;
+    font-size:28px;
+}
+
 iframe{
     width: 100%;
     height: 400px;
@@ -878,33 +888,6 @@ iframe{
 
 .info-grid img{
     margin-top: 20px;
-}
-
-@media screen and (max-width: 1700px){
-    .main-grid{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .linie2{
-        width: 1200px;
-    }
-}
-
-@media screen and (max-width: 1200px){
-    .main-grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .linie2{
-        width: 800px;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .header-logo{
-        width:15rem;
-    }
-    .section-item2{
-        display:none;
-    }
 }
 
 .confirmation-container {
@@ -994,6 +977,33 @@ iframe{
     color: #8e0039;
 }
 
+@media screen and (max-width: 1700px){
+    .main-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .linie2{
+        width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .main-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .linie2{
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header-logo{
+        width:15rem;
+    }
+    .section-item2{
+        display:none;
+    }
+}
+
 @media screen and (max-width: 768px){
     .main-grid{
         grid-template-columns: repeat(1, 1fr);
@@ -1012,5 +1022,26 @@ iframe{
     }
     .linie2{
         width: 300px;
+    }
+    .slide-content {
+        top: 15%;
+    }
+    .slide-content h2 {
+        font-size: 2.75rem;
+    }
+    .slide-content p {
+        font-size: 1.10rem;
+    }
+    .text-carte1 {
+        font-size: 23px;
+    }
+    .text-carte2 {
+        font-size: 19px;
+    }
+    .text-carte3 {
+        font-size: 24px;
+    }
+    .section-item1-text2{
+        font-size: 5vw;
     }
 }
